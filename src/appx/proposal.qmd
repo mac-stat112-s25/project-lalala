@@ -2,4 +2,8 @@
 title: "Proposal"
 ---
 
-Your proposal will go here.
+## "It was awful, and such small portions!": a reflection on time to finish and review scores for modern video games
+### Merce Lutzker and Elina Poll
+::: {.callout-note title="Project Description"}
+We will compare datasets on various contemporary video games regarding aggegregate consumer ratings on the website Metacritic, and average time to complete the game according to HowLongToBeat, another consumer-sourced aggregator to analyze their correlation. Or in short, how game length affects game enjoyment or rating
+:::
