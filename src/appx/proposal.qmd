@@ -21,3 +21,7 @@ roles |>
 
 
 :::
+
+::: {.callout-note title="Inspirations"}
+With us both being avid fans of video games alike, a growing trend in the industry is to add more padding in order to prolong gameplay. While some despise and others love the tactic, we were curious if a higher average playtime would result in higher review aggregate scores.
+:::
