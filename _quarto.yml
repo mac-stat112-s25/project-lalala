@@ -41,6 +41,9 @@ book:
   appendices:
   - src/appx/proposal.qmd
   - src/appx/case-study.qmd
+  
+  effective teamwork:
+  - src/et/elina-p.qmd
 
 
 
