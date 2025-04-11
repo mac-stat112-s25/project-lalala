@@ -4,7 +4,7 @@ title: "Effective Teamwork"
 
 
 ::: {.callout-note title="Summary"}
-For my effective teamwork reading, I looked at Natasha Tamiru's article at Google about building effective teamwork dynamics. Of the five core pillars (impact, psychological safety, dependability, structure and clarity, and )
+For my effective teamwork reading, I looked at Natasha Tamiru's article at Google about building effective teamwork dynamics. Of the five core pillars (impact, psychological safety, dependability, structure and clarity, and meaning), she found psychological safety to be the most important. A team with a good sense of psychological safety feels empowered to take risks even if they don't pay off, and are important for finding unique solutions to different problems. Essentially, there are no silly questions!
 :::
 
-
+link: https://business.google.com/us/think/future-of-marketing/five-dynamics-effective-team/

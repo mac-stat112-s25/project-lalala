@@ -37,13 +37,14 @@ book:
 
   chapters:
     - index.qmd
+    
+    - part: "Effective Teamwork"
+      chapters: 
+      - src/et/elina-p.qmd
 
   appendices:
   - src/appx/proposal.qmd
   - src/appx/case-study.qmd
-  
-  effective teamwork:
-  - src/et/elina-p.qmd
 
 
 

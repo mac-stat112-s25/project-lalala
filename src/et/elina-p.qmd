@@ -1,27 +1,10 @@
+  ---
+title: "Effective Teamwork"
 ---
-title: "Proposal"
----
-```{r}
-library(gt)
-library(ggplot2)
-roles <- read.csv("..//..//data//whoseresponsible.csv") 
-```
-## "It was awful, and such small portions!": a reflection on time to finish and review scores for modern video games
-### Merce Lutzker and Elina Poll
-::: {.callout-note title="Project Description"}
-We will compare datasets on various contemporary video games regarding aggegregate consumer ratings on the website Metacritic, and average time to complete the game according to HowLongToBeat, another consumer-sourced aggregator to analyze their correlation. Or in short, how game length affects game enjoyment or rating
 
+
+::: {.callout-note title="Summary"}
+For my effective teamwork reading, I looked at Natasha Tamiru's article at Google about building effective teamwork dynamics. Of the five core pillars (impact, psychological safety, dependability, structure and clarity, and meaning), she found psychological safety to be the most important. A team with a good sense of psychological safety feels empowered to take risks even if they don't pay off, and are important for finding unique solutions to different problems. Essentially, there are no silly questions!
 :::
 
-::: {.callout-note title="Responsibility Plan"}
-```{r}
-roles |>
-  gt()
-```
-
-
-:::
-
-::: {.callout-note title="Inspirations"}
-With us both being avid fans of video games alike, a growing trend in the industry is to add more padding in order to prolong gameplay. While some despise and others love the tactic, we were curious if a higher average playtime would result in higher review aggregate scores.
-:::
+link: https://business.google.com/us/think/future-of-marketing/five-dynamics-effective-team/
