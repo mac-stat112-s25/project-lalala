@@ -42,6 +42,9 @@ book:
       chapters: 
       - src/et/elina-p.qmd
       - src/et/merce-l.qmd
+    - part: "EDA"
+      chapters: 
+        - src/EDA/merce-l.qmd
 
   appendices:
   - src/appx/proposal.qmd
