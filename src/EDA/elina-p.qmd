@@ -1,0 +1,19 @@
+---
+title: "EDA"
+---
+
+```{r}
+library(tidyverse)
+hltb <- read_csv("..//..//data//all-completions.csv")
+games <- read_csv("..//..//data//games.csv")
+metac <- read.csv("..//..//data//all_games.csv")
+realgames <- games |>
+  mutate(name = title) |>
+  select(name, main_story, main_plus_extras, completionist, all_styles, type, platforms, genres)
+
+USETHISONE <- metac |>
+  select(-summary, -platform) |>
+  left_join(realgames)
+
+```
+
