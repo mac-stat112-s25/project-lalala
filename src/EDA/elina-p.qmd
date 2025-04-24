@@ -16,13 +16,35 @@ USETHISONE <- metac |>
   mutate(gaga = release_date) |>
   separate(gaga, c("semester", "year"), "(?<=[,])") |>
   mutate(release_year = str_replace(year, " ", "")) |>
+  mutate(user_review = as.integer(user_review)) |>
   select(-summary, -platform, -semester, -year) 
 
 ```
 
 ```{r}
 USETHISONE |>
-  ggplot(aes(x = release_date, y = meta_score)) +
+  group_by(release_year) |>
+  mutate(meanmeta = mean(meta_score)) |>
+  mutate(meanuser = mean(user_review)) |>
+  ungroup() |>
+  ggplot(aes(x = release_year, y = meanmeta)) +
+  geom_point() 
+  
+```
+
+```{r}
+USETHISONE |>
+  ggplot(aes(x = main_story, y = meta_score)) +
   geom_point()
+```
+
+```{r}
+USETHISONE |>
+  ggplot(aes(x = user_review)) +
+  geom_bar()
+USETHISONE |>
+  ggplot(aes(x = meta_score)) +
+  geom_histogram()
+
 ```
 
