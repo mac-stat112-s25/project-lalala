@@ -1,5 +1,5 @@
 ---
-title: "EDA"
+title: "Elina P"
 ---
 
 ```{r}
@@ -12,8 +12,17 @@ realgames <- games |>
   select(name, main_story, main_plus_extras, completionist, all_styles, type, platforms, genres)
 
 USETHISONE <- metac |>
-  select(-summary, -platform) |>
-  left_join(realgames)
+  left_join(realgames) |>
+  mutate(gaga = release_date) |>
+  separate(gaga, c("semester", "year"), "(?<=[,])") |>
+  mutate(release_year = str_replace(year, " ", "")) |>
+  select(-summary, -platform, -semester, -year) 
 
+```
+
+```{r}
+USETHISONE |>
+  ggplot(aes(x = release_date, y = meta_score)) +
+  geom_point()
 ```
 
