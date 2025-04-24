@@ -14,3 +14,10 @@ title: "Merce L"
 
 
 # Get It Twisted
+
+## Get It Twisted This Is Effective Teamwork
+
+I used [this article](https://slack.com/blog/collaboration/essential-steps-effective-teamwork) from Slack, written by Devon Maloney in 2019 for my effective teamwork reading
+::: {.callout-note title="Findings}
+
+:::
