@@ -34,8 +34,14 @@ USETHISONE |>
 
 ```{r}
 USETHISONE |>
+  filter(main_story < 100) |>
   ggplot(aes(x = main_story, y = meta_score)) +
-  geom_point()
+  geom_point(size = 0.5) 
+
+USETHISONE |>
+  ggplot(aes(x = main_story, y = user_review)) +
+  geom_point() 
+
 ```
 
 ```{r}
