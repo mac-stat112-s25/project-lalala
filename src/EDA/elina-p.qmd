@@ -36,7 +36,7 @@ USETHISONE |>
 USETHISONE |>
   filter(main_story < 100) |>
   ggplot(aes(x = main_story, y = meta_score)) +
-  geom_point(size = 0.5) 
+  geom_point(size = 0.6) 
 
 USETHISONE |>
   ggplot(aes(x = main_story, y = user_review)) +
@@ -50,7 +50,7 @@ USETHISONE |>
   geom_bar()
 USETHISONE |>
   ggplot(aes(x = meta_score)) +
-  geom_histogram()
+  geom_histogram(color = "white")
 
 ```
 
