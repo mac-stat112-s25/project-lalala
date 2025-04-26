@@ -36,6 +36,7 @@ USETHISONE |>
   ggplot(aes(x = release_year, y = meanmeta)) +
   geom_point() + 
   labs(x = "Release Year", y = "Mean Metacritic Score") +
+  geom_line() +
    theme(axis.text.x = element_text(size = 6))
   
 ```
@@ -74,9 +75,14 @@ USETHISONE |>
 ```
 
 ```{r}
-USETHISONE |>
+USETHISONE %>% drop_na(main_story)|>
+  filter(release_year > 1999 ) |>
+  filter(release_year < 2019) |>
+  group_by(release_year) |>
   mutate(meanhltb = mean(main_story)) |>
-  ggplot(aes(x = release_year, y = )) |>
+  ungroup() |>
+  ggplot(aes(x = release_year, y = meanhltb)) +
+  geom_point()
   
 ```
 
