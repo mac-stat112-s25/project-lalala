@@ -11,13 +11,19 @@ realgames <- games |>
   mutate(name = title) |>
   select(name, main_story, main_plus_extras, completionist, all_styles, type, platforms, genres)
 
-USETHISONE <- metac |>
+palala <- metac |>
   left_join(realgames) |>
   mutate(gaga = release_date) |>
   separate(gaga, c("semester", "year"), "(?<=[,])") |>
   mutate(release_year = str_replace(year, " ", "")) |>
   mutate(user_review = as.integer(user_review)) |>
+  mutate(release_year = as.integer(release_year)) |>
   select(-summary, -platform, -semester, -year) 
+
+USETHISONE <- palala[!duplicated(USETHISONE$name), ] 
+SPLITGENRES <- USETHISONE |>
+  separate_rows(genres, sep = ", ") |>
+  mutate(genres = str_to_upper(genres)) 
 
 ```
 
@@ -28,7 +34,9 @@ USETHISONE |>
   mutate(meanuser = mean(user_review)) |>
   ungroup() |>
   ggplot(aes(x = release_year, y = meanmeta)) +
-  geom_point() 
+  geom_point() + 
+  labs(x = "Release Year", y = "Mean Metacritic Score") +
+   theme(axis.text.x = element_text(size = 6))
   
 ```
 
@@ -52,5 +60,23 @@ USETHISONE |>
   ggplot(aes(x = meta_score)) +
   geom_histogram(color = "white")
 
+```
+```{r}
+USETHISONE |>
+  filter(release_year == 2006) |>
+  ggplot(aes(x = main_story, y = meta_score)) +
+  geom_point()
+
+USETHISONE |>
+  filter(release_year == 2018) |>
+  ggplot(aes(x = main_story, y = meta_score)) +
+  geom_point()
+```
+
+```{r}
+USETHISONE |>
+  mutate(meanhltb = mean(main_story)) |>
+  ggplot(aes(x = release_year, y = )) |>
+  
 ```
 
