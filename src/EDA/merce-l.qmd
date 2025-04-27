@@ -2,3 +2,93 @@
 title: "Merce L"
 ---
 
+```{r}
+library(tidyverse)
+library(scales)
+library(ggridges)
+library(raster)
+hltb <- read_csv("..//..//data//all-completions.csv")
+games <- read_csv("..//..//data//games.csv")
+metac <- read.csv("..//..//data//all_games.csv")
+realgames <- games |>
+  mutate(name = title) |>
+  select(name, main_story, main_plus_extras, completionist, all_styles, type, platforms, genres)
+
+palala <- metac |>
+  inner_join(realgames) |>
+  mutate(gaga = release_date) |>
+  separate(gaga, c("semester", "year"), "(?<=[,])") |>
+  mutate(release_year = str_replace(year, " ", "")) |>
+  mutate(user_review = as.integer(user_review)) |>
+  select(-summary, -platform, -semester, -year) 
+ # drop_na(main_story)
+USETHISONE <- palala[!duplicated(USETHISONE$name), ] |>
+  drop_na(main_story)
+
+```
+```{r}
+summary(USETHISONE)
+metac |>
+  inner_join(realgames) |>
+  mutate(gaga = release_date) |>
+  separate(gaga, c("semester", "year"), "(?<=[,])") |>
+  mutate(release_year = str_replace(year, " ", "")) |>
+  mutate(user_review = as.integer(user_review)) |> summary()
+typeof(USETHISONE$main_story)
+
+```
+```{r}
+USETHISONE |>
+  ggplot(aes(x = main_story)) +
+  geom_histogram(binwidth = 1, color = "white") +
+  scale_x_continuous(limits = c(0,50))
+
+realgames |>
+  ggplot(aes(x = main_story)) +
+  geom_histogram(binwidth = 1, color = "white") +
+  scale_x_continuous(limits = c(0,15))
+```
+
+```{r}
+withcats <- USETHISONE |>
+  mutate(main_cat = case_when(
+    (main_story <=2) ~ "nothing",
+    (main_story <= 4 & main_story >2) ~ "tiny",
+    (main_story <= 10 & main_story >7) ~ "medium",
+    (main_story < 14 & main_story > 10) ~ "long",
+    (main_story < 25 & main_story >=15) ~ "huge",
+    (main_story >= 25) ~ "epic",
+    .default = "short"
+  )) |>
+    mutate(main_cat = fct_relevel(main_cat, c("nothing", "tiny", "short", "medium", "long", "huge", "epic"))) 
+#  filter(meta_score > 40) |>
+withcats |>
+  ggplot(aes(y = meta_score, x=main_cat)) +
+  geom_boxplot() 
+withcats |>
+  ggplot(aes(y = meta_score, x=main_cat)) +
+  geom_violin() 
+withcats |>
+  ggplot(aes(y = meta_score, x=main_cat)) +
+  geom_density()
+```
+```{r}
+library(RColorBrewer)
+USETHISONE |>
+  filter(main_story < 50) |>
+  ggplot(aes(x = main_story, y = meta_score)) +
+  #geom_point(size = 0.6) +
+  geom_density_2d_filled(alpha=0.5, bins=10) 
+#  geom_point( aes(size=after_stat(density)))
+USETHISONE |>
+  #filter(meta_score < 60) |>
+  filter(main_story > 25) |>
+  filter(main_story < 50) |>
+  ggplot(aes(main_story, meta_score )) +
+  #geom_point(size = 0.6) 
+  #geom_raster(aes(fill=density))
+  geom_bin_2d( binwidth = c(1,4)) +
+  scale_fill_distiller(palette="YlGnBu", name = "# Games")
+```
+```
+
