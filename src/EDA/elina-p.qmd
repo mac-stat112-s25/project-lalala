@@ -56,10 +56,15 @@ USETHISONE |>
 ```{r}
 USETHISONE |>
   ggplot(aes(x = user_review)) +
-  geom_bar()
+  geom_bar() +
+  labs(x = "User Score", y = "Count") +
+  scale_x_continuous(breaks=c(0,1,2,3,4,5,6,7,8,9))
+
 USETHISONE |>
   ggplot(aes(x = meta_score)) +
-  geom_histogram(color = "white")
+  geom_histogram(color = "white", binwidth = 3) +
+  labs(x = "Critic Score", y = "Count")
+
 
 ```
 ```{r}
