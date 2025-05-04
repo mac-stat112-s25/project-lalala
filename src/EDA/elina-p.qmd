@@ -20,7 +20,7 @@ palala <- metac |>
   mutate(release_year = as.integer(release_year)) |>
   select(-summary, -platform, -semester, -year) 
 
-USETHISONE <- palala[!duplicated(USETHISONE$name), ] 
+USETHISONE <- palala[!duplicated(palala$name), ] 
 SPLITGENRES <- USETHISONE |>
   separate_rows(genres, sep = ", ") |>
   mutate(genres = str_to_upper(genres)) 
