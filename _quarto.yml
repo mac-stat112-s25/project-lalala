@@ -44,6 +44,7 @@ book:
       - src/et/merce-l.qmd
     - part: "EDA"
       chapters: 
+        - src/EDA/elina-p.qmd
         - src/EDA/merce-l.qmd
 
   appendices:
