@@ -42,7 +42,7 @@ typeof(USETHISONE$main_story)
 
 
 ```{r}
-USETHISONE |>
+withcats |>
   ggplot(aes(x = main_story)) +
   geom_histogram(binwidth = 1, color = "white") +
   scale_x_continuous(limits = c(0,50)) +
