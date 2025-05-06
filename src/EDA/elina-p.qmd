@@ -12,7 +12,7 @@ realgames <- games |>
   select(name, main_story, main_plus_extras, completionist, all_styles, type, platforms, genres)
 
 palala <- metac |>
-  left_join(realgames) |>
+  inner_join(realgames) |>
   mutate(gaga = release_date) |>
   separate(gaga, c("semester", "year"), "(?<=[,])") |>
   mutate(release_year = str_replace(year, " ", "")) |>
@@ -45,7 +45,8 @@ USETHISONE |>
 USETHISONE |>
   filter(main_story < 100) |>
   ggplot(aes(x = main_story, y = meta_score)) +
-  geom_point(size = 0.6) 
+  geom_point(size = 0.6) +
+  labs(x = "Main Story Length", y = "Metascore", title = "Metacritic Score vs Amount of Time to Complete Main Story")
 
 USETHISONE |>
   ggplot(aes(x = main_story, y = user_review)) +
