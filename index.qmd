@@ -5,8 +5,6 @@ execute:
 code-fold: false  # change to true to fold the code chunks
 ---
 
-# Project Report
-
 
 ## Introduction
 The first Assassin's Creed game was released in 2007, and since has become a flagship title for Ubisoft, the publishers of the game. In order to complete the main story and extra content of the game, it's estimated that it would take you 20 hours total, which was typical of games then. Fast forward 13 years later, and 2020's Assassin's Creed: Valhalla's main story and side missions are estimated to take a total of 100 hours. When released, Valhalla was a notable outlier for its massive time to beat. But while most games don't strive to be *that* long, trends in gaming have made it so a long time to beat is a prized ideal for some developers. However, this strive to make the game with the most content possible comes at a cost. The price of game development has only gotten higher with time, and most companies cannot afford to pack a product with such a high amount of unique content. But neither did Assassin's Creed Valhalla! A growing issue in the modern video game market is to have games released with around 20 hours of original unique content, and have the rest of the playtime be taken up with the same missions, assets, and content slightly copied and pasted somewhere else. 
@@ -17,6 +15,15 @@ Depending on where you get your video game reviews from, it may not be apparent 
 ## Background
 For more context on our chosen sources...
 
+### Howlongtobeat
+Howlongtobeat is a video game cataloging service that, unsurprisingly, tracks how long a video game is to beat. One problem about measuring playtime is that each person completes games at their own speed, so using a service like Howlongtobeat allows us to get a much more accurate average based on user submissions than one person giving their feedback.
+
+### Metacritic
+Metacritic is a aggregate review site for Movies, Music, TV, and critically, Video Games. Instead of hosting their own reviews, the sole purpose of Metacritic is to create a hub where every reviewer's score resides, creating a highly utilized value in game discourse: the Metascore (essentially just a weighted average). Among that score, there are two values to take note of: The *critic score* is a 0 <-> 100 value that averages the scores of review outlet ratings of a title, and the *user score*, a 0 <-> 10 value that averages the reviews left by Metacritic users. 
+
+## Data
+For our project we joined 2 Kaggle datasets: one for Howlongtobeat times, and one for Metacritic scores. For Howlongtobeat, the dataset was collected by Kasumil5x in 2020 by scraping the official HLTB website. The dataset contained more information than we needed; Alongside with the Title and Main Story playtime, it also contained the developers, whether it was an expansion, and a multitude of other playtimes that weren't applicable to our project (how long it would take to 100% comple a game, and how long a co-op mode would take to complete (if it was included)). 
+Our Metacritic dataset was made by Deep Contractor in 2022, by scraping directly from the Metacritic website. Alongside game title, user score, and critic score, the dataset also included which gaming platform it was released for, a summary of the game, and the release date. That last value (with a little wrangling) became a very helpful way of comparing how playtimes have changed over time. With a simple left_join by name and an extra mutate variable for yearly review averages, our dataset was ready!
 ```{r}
 # this is a test code
 ```
