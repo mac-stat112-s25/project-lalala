@@ -5,7 +5,17 @@ execute:
 code-fold: false  # change to true to fold the code chunks
 ---
 
-Your report will go here.
+# Project Report
+
+
+## Introduction
+The first Assassin's Creed game was released in 2007, and since has become a flagship title for Ubisoft, the publishers of the game. In order to complete the main story and extra content of the game, it's estimated that it would take you 20 hours total, which was typical of games then. Fast forward 13 years later, and 2020's Assassin's Creed: Valhalla's main story and side missions are estimated to take a total of 100 hours. When released, Valhalla was a notable outlier for its massive time to beat. But while most games don't strive to be *that* long, trends in gaming have made it so a long time to beat is a prized ideal for some developers. However, this strive to make the game with the most content possible comes at a cost. The price of game development has only gotten higher with time, and most companies cannot afford to pack a product with such a high amount of unique content. But neither did Assassin's Creed Valhalla! A growing issue in the modern video game market is to have games released with around 20 hours of original unique content, and have the rest of the playtime be taken up with the same missions, assets, and content slightly copied and pasted somewhere else. 
+
+## Research Question
+Depending on where you get your video game reviews from, it may not be apparent just how much bloat a game might be filled with. Alongside it, some reviewers may simply look at the playtime without considering how much of it is unique, causing this bloat to go unseen. Every gamer has their own preferences on how long they like their games to be, but so does every reviewer. In hopes of painting a fuller picture of this subject, we took data from Howlongtobeat and Metacritic in order to answer our research question: *do longer video games get better review scores?*
+
+## Background
+For more context on our chosen sources...
 
 ```{r}
 # this is a test code
