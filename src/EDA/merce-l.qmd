@@ -43,13 +43,15 @@ USETHISONE |>
   ggplot(aes(x = main_story)) +
   geom_histogram(binwidth = 1, color = "white") +
   scale_x_continuous(limits = c(0,50)) +
-  labs(x="Main Story Length (Hours)", title="Distribution of Games Lengths (post-join and wrangling)")
+  labs(x="Main Story Length (Hours)", title="Distribution of Games Lengths (post-join and wrangling)") +
+  theme_classic()
 
 realgames |>
   ggplot(aes(x = main_story)) +
   geom_histogram(binwidth = 1, color = "white") +
   scale_x_continuous(limits = c(0,50)) +
-  labs(x="Main Story Length (Hours)", title="Distribution of Games Lengths (pre-join)")
+  labs(x="Main Story Length (Hours)", title="Distribution of Games Lengths (pre-join)") +
+  theme_classic()
 realgames |>
  # filter(meta_score<=70) 
   arrange(desc(main_story))
