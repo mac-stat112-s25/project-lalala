@@ -22,8 +22,7 @@ palala <- metac |>
   mutate(user_review = as.integer(user_review)) |>
   select(-summary, -platform, -semester, -year) 
 
-USETHISONE <- palala[!duplicated(palala$name), ] |>
-  drop_na(main_story)
+USETHISONE <- palala[!duplicated(palala$name), ]
 #same as elina's code but i use inner_join and drop_na to exclude NAs so that my categories work properly
 ```
 ```{r}
@@ -62,6 +61,7 @@ USETHISONE |>
 
 ```{r}
 withcats <- USETHISONE |>
+  drop_na(main_story) |>
   mutate(main_cat = case_when(
     (main_story <=2) ~ "nothing",
     (main_story <= 4 & main_story >2) ~ "tiny",
