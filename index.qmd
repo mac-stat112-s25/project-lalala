@@ -24,7 +24,51 @@ Metacritic is a aggregate review site for Movies, Music, TV, and critically, Vid
 ## Data
 For our project we joined 2 Kaggle datasets: one for Howlongtobeat times, and one for Metacritic scores. For Howlongtobeat, the dataset was collected by Kasumil5x in 2020 by scraping the official HLTB website. The dataset contained more information than we needed; Alongside with the Title and Main Story playtime, it also contained the developers, whether it was an expansion, and a multitude of other playtimes that weren't applicable to our project (how long it would take to 100% comple a game, and how long a co-op mode would take to complete (if it was included)). 
 Our Metacritic dataset was made by Deep Contractor in 2022, by scraping directly from the Metacritic website. Alongside game title, user score, and critic score, the dataset also included which gaming platform it was released for, a summary of the game, and the release date. That last value (with a little wrangling) became a very helpful way of comparing how playtimes have changed over time. With a simple left_join by name and an extra mutate variable for yearly review averages, our dataset was ready!
-```{r}
-# this is a test code
-```
 
+```{r}
+library(tidyverse)
+library(scales)
+library(ggridges)
+hltb <- read_csv("data//all-completions.csv")
+games <- read_csv("data//games.csv")
+metac <- read.csv("data//all_games.csv")
+realgames <- games |>
+  mutate(name = title) |>
+  select(name, main_story, main_plus_extras, completionist, all_styles, type, platforms, genres)
+
+palala <- metac |>
+  inner_join(realgames) |>
+  mutate(gaga = release_date) |>
+  separate(gaga, c("semester", "year"), "(?<=[,])") |>
+  mutate(release_year = str_replace(year, " ", "")) |>
+  mutate(user_review = as.integer(user_review)) |>
+  select(-summary, -platform, -semester, -year) 
+
+USETHISONE <- palala[!duplicated(palala$name), ]
+#same as elina's code but i use inner_join and drop_na to exclude NAs so that my categories work properly
+
+withcats <- USETHISONE |>
+  drop_na(main_story) |>
+  mutate(main_cat = case_when(
+    (main_story <=2) ~ "nothing",
+    (main_story <= 4 & main_story >2) ~ "tiny",
+    (main_story <= 10 & main_story >7) ~ "medium",
+    (main_story < 14 & main_story > 10) ~ "long",
+    (main_story < 25 & main_story >=14) ~ "huge",
+    (main_story >= 25) ~ "epic",
+    .default = "short"
+  )) |>
+    mutate(main_cat = fct_relevel(main_cat, c("nothing", "tiny", "short", "medium", "long", "huge", "epic"))) |>
+  #creates time based categories, subjective and mostly based on strandard distribution quantiles
+mutate(meta_cat = case_when(
+    (meta_score <=40) ~ "shovelware",
+    (meta_score <= 60 & meta_score >40) ~ "questionable",
+    (meta_score < 70 & meta_score >60) ~ "mixed",
+    (meta_score < 84 & meta_score > 78) ~ "great",
+    (meta_score < 90 & meta_score >=84) ~ "beloved",
+    (meta_score >= 90) ~ "legendary",
+    .default = "good"
+)) |>
+    mutate(meta_cat = fct_relevel(meta_cat, c("shovelware", "questionable", "mixed", "good", "great", "beloved", "legendary")))
+#creates score based categories, mostly subjective
+```
