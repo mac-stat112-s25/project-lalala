@@ -25,6 +25,8 @@ palala <- metac |>
 USETHISONE <- palala[!duplicated(palala$name), ]
 #same as elina's code but i use inner_join and drop_na to exclude NAs so that my categories work properly
 ```
+
+
 ```{r}
 summary(USETHISONE)
 summary(realgames)
@@ -37,6 +39,8 @@ metac |>
 typeof(USETHISONE$main_story)
 # i try to find some of the distributions here
 ```
+
+
 ```{r}
 USETHISONE |>
   ggplot(aes(x = main_story)) +
@@ -60,6 +64,7 @@ USETHISONE |>
   geom_point(size = 0.6) 
 #checking what i removed in wrangling, and what we have for completionist
 ```
+
 
 ```{r}
 withcats <- USETHISONE |>
@@ -107,6 +112,8 @@ withcats |>
 
 
 ```
+
+
 ```{r}
 withcats |>
 #  filter(main_story<=75) |>
