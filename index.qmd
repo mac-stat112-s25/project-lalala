@@ -4,6 +4,7 @@ execute:
   echo: true      # change to true to show the code
 code-fold: false  # change to true to fold the code chunks
 ---
+{{< video data//videokojima.mp4 >}}
 
 
 ## Introduction
