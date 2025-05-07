@@ -28,7 +28,7 @@ Our Metacritic dataset was made by Deep Contractor in 2022, by scraping directly
 ```{r}
 library(tidyverse)
 library(scales)
-library(ggridges)
+library(RColorBrewer)
 hltb <- read_csv("data//all-completions.csv")
 games <- read_csv("data//games.csv")
 metac <- read.csv("data//all_games.csv")
@@ -43,10 +43,40 @@ palala <- metac |>
   mutate(release_year = str_replace(year, " ", "")) |>
   mutate(user_review = as.integer(user_review)) |>
   select(-summary, -platform, -semester, -year) 
+#joins based on name of game and wrangles some values to be functional
 
 USETHISONE <- palala[!duplicated(palala$name), ]
-#same as elina's code but i use inner_join and drop_na to exclude NAs so that my categories work properly
+#excludes duplicates
+```
+##Data Insights
+In pursuit of a better understanding of the data, we started by graphing all points ina simple plot, where Metascore was represented on the y-axis, and average time to beat the main story represented on the x. Note that the range of x is always constricted in our visualizations because of the presence of outliers reaching as far as 248 hours to beat on average.
+###Scatter Plot of Metascore and Length
+```{r}
+USETHISONE |>
+  filter(main_story < 100) |>
+  ggplot(aes(x = main_story, y = meta_score)) +
+  geom_point(size = 0.6) +
+  labs(x = "Main Story Length", y = "Metascore", title = "Metacritic Score vs Amount of Time to Complete Main Story")
+```
 
+However, it soon became clear that this type of plot was not expedient to our understanding of the data. This is because of the density, number, and clustering of the data points, which meant that certain points overlapped too closely to be discernably different. To this end, we regraphed the data using geom_bin_2d, which creates rectangular regions on a plot which are colored based on how many points fall within the box. 
+###2D density plot of Metascore and Length
+```{r}
+USETHISONE |>
+  filter(main_story < 50) |>
+  ggplot(aes(main_story, meta_score )) +
+  geom_bin_2d( binwidth = c(0.5,1)) +
+  scale_fill_distiller(palette="YlGnBu", name = "# Games") +
+  labs(y="Critic Score", x="Main Story Length (Hours)", title="Score vs. Main Story Length")
+```
+
+This gives a clearer picture of the basic rundown of the data but does not contradict the most evident observation from our first visualization: that the only really underrepresented quadrant is that of “bad long games”. That is, it is very clear that there are plenty of short games that are rated all sorts of scores: the Metacritic aggregate review score of games under 5 hours range anywhere from the twenties to the nineties. However, among games longer than, say, 50 hours, there are much fewer games with review scores lower than 60. In fact, we can even draw a sort of line (that somewhat resembles the graph of a square root of x)
+o	(FIRST GRAPH WITH LINE HAND DRAWN ON THERE)
+In search of answers, we created category factors to compare the densities using bivariate visualizations and methods we were familiar with, like faceted density plots and box plots.
+We created a factor categorizing time into “Nothing” (a main story of less than two hours), “Tiny” (a main story of between 2 and 4 hours), “Small” (a main story of between 4 and 7 hours), “Medium” (a main story of between 7 and 10 hours),  “Long” (a main story of between 10 and 14 hours), “Huge” (a main story of between 14 to 25 hours), and “Epic” (a main story of longer than 25 hours).  This was mostly based on the standard distributions of game lengths (show screenshot) and subjective ratings. Note that NA values had to be excluded here to properly define the factor.
+Similarly, subjective ratings informed how the Metacritic aggregate scores were categorized, where games below 40 Meta Score were labeled “Shovelware” (Gamer slang for a poorly made game that is “shoveled out” of a production house like dung), games between 40 and 60 Meta Score were labeled “Questionable”, games between 60 and 70 Meta Score were labeled “Mixed”, games between 70 and 78 Meta Score were labeled “Good”, games between 78 and 84 Meta Score were labeled “Great”, games between 84 and 90 Meta score were labeled “Beloved”, and games above 90 Meta Score were labeled “Legendary”. 
+
+```{r}
 withcats <- USETHISONE |>
   drop_na(main_story) |>
   mutate(main_cat = case_when(
@@ -72,3 +102,36 @@ mutate(meta_cat = case_when(
     mutate(meta_cat = fct_relevel(meta_cat, c("shovelware", "questionable", "mixed", "good", "great", "beloved", "legendary")))
 #creates score based categories, mostly subjective
 ```
+
+The subjective rating was, in this case, systematic: data was surveyed and associated with the researcher’s knowledge of how certain games are generally regarded. Attention must also be paid to the wide range of the “Legendary” category: above a certain threshold, very high ratings are rare, and are fairly subjective, especially because of the aggregate nature of scores. This means this section all really melts together. 
+
+Using these categories, we were able to construct bivariate box and density plots to show the relative frequencies of lengths or score in the corresponding categories of score or length.
+
+```{r}
+withcats |>
+  ggplot(aes(y = meta_score, x=main_cat)) +
+  geom_boxplot() +
+  labs(y="Critic Score", x="Main Story Length", title="Score Distribution by Length Categories")
+withcats |>
+  ggplot(aes(x = meta_score)) +
+  geom_density(binwidth = 3) +
+  facet_wrap(~ main_cat) +
+  labs(x="Critic Score", title="Score Distribution by Length Categories")
+#distribution graphs based on length categories vs scores
+```
+
+```{r}
+withcats |>
+  ggplot(aes(y = main_story, x=meta_cat)) +
+  geom_boxplot() +
+  labs(x="Critic Evaluation", y="Main Story Length (Hours)", title="Length Distribution by Score Categories") +
+  scale_y_continuous(limits = c(0,75))
+withcats |>
+  ggplot(aes(x = main_story)) +
+  geom_density(fill="gold", alpha=0.5) +
+  facet_wrap(~ meta_cat) +
+  scale_x_continuous(limits = c(0,25)) +
+  labs(x="Main Story Length (Hours)", title="Length Distribution by Score Categories")
+#distribution graphs based on length vs score categories
+```
+

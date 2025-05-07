@@ -23,7 +23,7 @@ palala <- metac |>
   select(-summary, -platform, -semester, -year) 
 
 USETHISONE <- palala[!duplicated(palala$name), ]
-#same as elina's code but i use inner_join and drop_na to exclude NAs so that my categories work properly
+#same as elina's code but i use inner_join and drop_na (MOVED TO LATER) to exclude NAs so that my categories work properly
 ```
 
 
@@ -116,7 +116,6 @@ withcats |>
 
 ```{r}
 withcats |>
-#  filter(main_story<=75) |>
   ggplot(aes(y = main_story, x=meta_cat)) +
   geom_boxplot() +
   labs(x="Critic Evaluation", y="Main Story Length (Hours)", title="Length Distribution by Score Categories") +
@@ -135,7 +134,6 @@ withcats |>
 
 
 withcats |>
-#  filter(main_story<=25) |>
   ggplot(aes(x = main_story)) +
   geom_density(fill="gold", alpha=0.5) +
   facet_wrap(~ meta_cat) +
