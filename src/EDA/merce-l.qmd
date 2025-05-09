@@ -39,7 +39,32 @@ metac |>
 typeof(USETHISONE$main_story)
 # i try to find some of the distributions here
 ```
-
+```{r}
+withcats <- USETHISONE |>
+  drop_na(main_story) |>
+  mutate(main_cat = case_when(
+    (main_story <=2) ~ "nothing",
+    (main_story <= 4 & main_story >2) ~ "tiny",
+    (main_story <= 10 & main_story >7) ~ "medium",
+    (main_story < 14 & main_story > 10) ~ "long",
+    (main_story < 25 & main_story >=14) ~ "huge",
+    (main_story >= 25) ~ "epic",
+    .default = "short"
+  )) |>
+    mutate(main_cat = fct_relevel(main_cat, c("nothing", "tiny", "short", "medium", "long", "huge", "epic"))) |>
+  #creates time based categories, subjective and mostly based on strandard distribution quantiles
+mutate(meta_cat = case_when(
+    (meta_score <=40) ~ "shovelware",
+    (meta_score <= 60 & meta_score >40) ~ "questionable",
+    (meta_score < 70 & meta_score >60) ~ "mixed",
+    (meta_score < 84 & meta_score > 78) ~ "great",
+    (meta_score < 90 & meta_score >=84) ~ "beloved",
+    (meta_score >= 90) ~ "legendary",
+    .default = "good"
+)) |>
+    mutate(meta_cat = fct_relevel(meta_cat, c("shovelware", "questionable", "mixed", "good", "great", "beloved", "legendary")))
+#creates score based categories, mostly subjective
+```
 
 ```{r}
 withcats |>
@@ -66,32 +91,9 @@ USETHISONE |>
 ```
 
 
-```{r}
-withcats <- USETHISONE |>
-  drop_na(main_story) |>
-  mutate(main_cat = case_when(
-    (main_story <=2) ~ "nothing",
-    (main_story <= 4 & main_story >2) ~ "tiny",
-    (main_story <= 10 & main_story >7) ~ "medium",
-    (main_story < 14 & main_story > 10) ~ "long",
-    (main_story < 25 & main_story >=14) ~ "huge",
-    (main_story >= 25) ~ "epic",
-    .default = "short"
-  )) |>
-    mutate(main_cat = fct_relevel(main_cat, c("nothing", "tiny", "short", "medium", "long", "huge", "epic"))) |>
-  #creates time based categories, subjective and mostly based on strandard distribution quantiles
-mutate(meta_cat = case_when(
-    (meta_score <=40) ~ "shovelware",
-    (meta_score <= 60 & meta_score >40) ~ "questionable",
-    (meta_score < 70 & meta_score >60) ~ "mixed",
-    (meta_score < 84 & meta_score > 78) ~ "great",
-    (meta_score < 90 & meta_score >=84) ~ "beloved",
-    (meta_score >= 90) ~ "legendary",
-    .default = "good"
-)) |>
-    mutate(meta_cat = fct_relevel(meta_cat, c("shovelware", "questionable", "mixed", "good", "great", "beloved", "legendary")))
-#creates score based categories, mostly subjective
 
+
+```{r}
 withcats |>
   ggplot(aes(y = meta_score, x=main_cat)) +
   geom_boxplot() +
