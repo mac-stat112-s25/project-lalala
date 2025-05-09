@@ -5,8 +5,8 @@ execute:
 code-fold: false  # change to true to fold the code chunks
 ---
 
-##Presentation and Video
-{{< video data//videokojima.mp4 >}}
+## Presentation and Video
+{{< video //data//videokojima.mp4 >}}
 Click [here](//data//LaLaLaPrez.pdf) to see our presentation
 
 ## Introduction
@@ -51,7 +51,7 @@ palala <- metac |>
 USETHISONE <- palala[!duplicated(palala$name), ]
 #excludes duplicates
 ```
-##Data Insights
+## Data Insights
 In pursuit of a better understanding of the data, we started by graphing all points in a simple plot, where Metascore was represented on the y-axis, and average time to beat the main story represented on the x. Note that the range of x is always constricted in our visualizations because of the presence of outliers reaching as far as 248 hours to beat on average.
 
 ```{r}
@@ -144,7 +144,7 @@ On the other hand, when arranged into categories by score, it is easier to see t
 
 This data collectively points to the fact that, while shorter games can vary in quality, and indeed there are very well regarded short games, there are very few longer games that are afforded the sort of universal disrepute which lands one in the bottom two-fifths of Metacritic’s scoring system.
 
-##Conclusions and Potential Explanations
+## Conclusions and Potential Explanations
 
 This takeaway, that games do not necessarily need to be long to be loved, but those that are hated are scarcely long, while contrasting with the initial ideas underlying this investigation, are not particularly surprising.
 What it does make very clear is that an impetus to make games long in order to improve them is completely unnecessary, as we say many examples of well rated games of shorter length.
@@ -154,7 +154,7 @@ On the other hand, why the worst regarded games were restricted mostly to short 
 Outliers to what we called the “zone of relative exclusion” (the lack of longer games of poor quality) included titles such as “7 Days to Die”, a survival game in continuous development since 2013, with a 1.0 releasing in 2024. Because of the open-ended and unfinished nature of the gameplay,  length may be difficult to rate for users of howlongtobeat, and playtime is extending using randomly generated content
 
 
-##Limitations and Avenues for Further Research 
+## Limitations and Avenues for Further Research 
 
 The data used in this project is 3 to 5 years old, and surely much has changed in the industry in this time; even comapred short spans within our data has shown difference in length and ratings by release year.
 Further analysis might also be done into other metrics provided by howlongtobeat, suchas the length of extra content in games.
