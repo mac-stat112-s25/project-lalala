@@ -4,8 +4,10 @@ execute:
   echo: true      # change to true to show the code
 code-fold: false  # change to true to fold the code chunks
 ---
-{{< video data//videokojima.mp4 >}}
 
+##Presentation and Video
+{{< video data//videokojima.mp4 >}}
+Click [here](//data//LaLaLaPrez.pdf) to see our presentation
 
 ## Introduction
 The first Assassin's Creed game was released in 2007, and since has become a flagship title for Ubisoft, the publishers of the game. In order to complete the main story and extra content of the game, it's estimated that it would take you 20 hours total, which was typical of games then. Fast forward 13 years later, and 2020's Assassin's Creed: Valhalla's main story and side missions are estimated to take a total of 100 hours. When released, Valhalla was a notable outlier for its massive time to beat. But while most games don't strive to be *that* long, trends in gaming have made it so a long time to beat is a prized ideal for some developers. However, this strive to make the game with the most content possible comes at a cost. The price of game development has only gotten higher with time, and most companies cannot afford to pack a product with such a high amount of unique content. But neither did Assassin's Creed Valhalla! A growing issue in the modern video game market is to have games released with around 20 hours of original unique content, and have the rest of the playtime be taken up with the same missions, assets, and content slightly copied and pasted somewhere else. 
@@ -140,4 +142,21 @@ Arranged by length categories, visualization shows a possible gentle trend of in
 
 On the other hand, when arranged into categories by score, it is easier to see trends of total game-time among the extremities of low and high scores. The box plot, particularly, shows how the 3rd quartile of length grows higher among better-rated games. This is particularly true among the very-best regarded games, which we termed “legendary”. This does not, though, restrict the 1st quartile of better games as much as might be expected: again, the difference between “beloved” and “legendary” games is markedly more significant for the 3rd than the 1st quartile of lengths. We also see the relative rarity of longer games of exceptionally poor regard (those we referred to as “shovelware” earlier): while most quality categories have healthy bundles of outliers above outside of their most common ranges, “shovelware” is restricted to a scarce few, with a tight deviation hovering somewhere around an average length of ~5 hours. 
 
-This data collectively points to the fact that, while shorter games can vary in quality, and indeed there are very well regarded short games, there are very few longer games that are afforded the sort of universal disrepute which lands one in the bottom two-fifths of Metacritic’s scoring system. 
+This data collectively points to the fact that, while shorter games can vary in quality, and indeed there are very well regarded short games, there are very few longer games that are afforded the sort of universal disrepute which lands one in the bottom two-fifths of Metacritic’s scoring system.
+
+##Conclusions and Potential Explanations
+
+This takeaway, that games do not necessarily need to be long to be loved, but those that are hated are scarcely long, while contrasting with the initial ideas underlying this investigation, are not particularly surprising.
+What it does make very clear is that an impetus to make games long in order to improve them is completely unnecessary, as we say many examples of well rated games of shorter length.
+
+On the other hand, why the worst regarded games were restricted mostly to short lengths could be due to several factors. Most longer games require a larger budget, longer development time, and more care to be put into construction. While these aspects do not always lead to a more enjoyable game, a certain amount of them are usually necessary for a game to be functional and coherent. Aforementioned “Shovelware” has a reputation of lacking these resources which would be required to develop a longer game. Furthermore, there is a baseline level of enjoyment and respect that one both needs and develops to finish a game longer than, say, 10, 15 hours. Finishing a game of this length often lets someone at least adjust to the games quirks, changing their opinion of the game. 
+
+Outliers to what we called the “zone of relative exclusion” (the lack of longer games of poor quality) included titles such as “7 Days to Die”, a survival game in continuous development since 2013, with a 1.0 releasing in 2024. Because of the open-ended and unfinished nature of the gameplay,  length may be difficult to rate for users of howlongtobeat, and playtime is extending using randomly generated content
+
+
+##Limitations and Avenues for Further Research 
+
+The data used in this project is 3 to 5 years old, and surely much has changed in the industry in this time; even comapred short spans within our data has shown difference in length and ratings by release year.
+Further analysis might also be done into other metrics provided by howlongtobeat, suchas the length of extra content in games.
+Data visualizations in this project were limited in scope in favor of readability, excluding outliers in a way that did not neccesarily paint a complete picture. Alternative visualization methods may be useful in this pursuit.
+Lastly, much data was lost in the joining and wrangling processes. FInding where this might be rectified would give us more complete data.
