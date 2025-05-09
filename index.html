@@ -74,7 +74,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -233,17 +235,30 @@ cookieconsent.run({
 </div>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">0.1</span> Introduction</a></li>
+  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question"><span class="header-section-number">0.2</span> Research Question</a></li>
+  <li>
+<a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">0.3</span> Background</a>
+  <ul class="collapse">
+<li><a href="#howlongtobeat" id="toc-howlongtobeat" class="nav-link" data-scroll-target="#howlongtobeat"><span class="header-section-number">0.3.1</span> Howlongtobeat</a></li>
+  <li><a href="#metacritic" id="toc-metacritic" class="nav-link" data-scroll-target="#metacritic"><span class="header-section-number">0.3.2</span> Metacritic</a></li>
+  </ul>
+</li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">0.4</span> Data</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">It was awful, and such small portions</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Authors</div>
@@ -256,7 +271,7 @@ cookieconsent.run({
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Sunday, May 4, 2025</p>
+      <p class="date">Friday, May 9, 2025</p>
     </div>
   </div>
   
@@ -265,16 +280,250 @@ cookieconsent.run({
   
 
 
-</header><p>Your report will go here.</p>
+</header><p>##Presentation and Video</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="data//videokojima.mp4"></video></div>
+<p>Click <a href="./data//LaLaLaPrez.pdf">here</a> to see our presentation</p>
+<section id="introduction" class="level2" data-number="0.1"><h2 data-number="0.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">0.1</span> Introduction</h2>
+<p>The first Assassin’s Creed game was released in 2007, and since has become a flagship title for Ubisoft, the publishers of the game. In order to complete the main story and extra content of the game, it’s estimated that it would take you 20 hours total, which was typical of games then. Fast forward 13 years later, and 2020’s Assassin’s Creed: Valhalla’s main story and side missions are estimated to take a total of 100 hours. When released, Valhalla was a notable outlier for its massive time to beat. But while most games don’t strive to be <em>that</em> long, trends in gaming have made it so a long time to beat is a prized ideal for some developers. However, this strive to make the game with the most content possible comes at a cost. The price of game development has only gotten higher with time, and most companies cannot afford to pack a product with such a high amount of unique content. But neither did Assassin’s Creed Valhalla! A growing issue in the modern video game market is to have games released with around 20 hours of original unique content, and have the rest of the playtime be taken up with the same missions, assets, and content slightly copied and pasted somewhere else.</p>
+</section><section id="research-question" class="level2" data-number="0.2"><h2 data-number="0.2" class="anchored" data-anchor-id="research-question">
+<span class="header-section-number">0.2</span> Research Question</h2>
+<p>Depending on where you get your video game reviews from, it may not be apparent just how much bloat a game might be filled with. Alongside it, some reviewers may simply look at the playtime without considering how much of it is unique, causing this bloat to go unseen. Every gamer has their own preferences on how long they like their games to be, but so does every reviewer. In hopes of painting a fuller picture of this subject, we took data from Howlongtobeat and Metacritic in order to answer our research question: <em>do longer video games get better review scores?</em></p>
+</section><section id="background" class="level2" data-number="0.3"><h2 data-number="0.3" class="anchored" data-anchor-id="background">
+<span class="header-section-number">0.3</span> Background</h2>
+<p>For more context on our chosen sources…</p>
+<section id="howlongtobeat" class="level3" data-number="0.3.1"><h3 data-number="0.3.1" class="anchored" data-anchor-id="howlongtobeat">
+<span class="header-section-number">0.3.1</span> Howlongtobeat</h3>
+<p>Howlongtobeat is a video game cataloging service that, unsurprisingly, tracks how long a video game is to beat. One problem about measuring playtime is that each person completes games at their own speed, so using a service like Howlongtobeat allows us to get a much more accurate average based on user submissions than one person giving their feedback.</p>
+</section><section id="metacritic" class="level3" data-number="0.3.2"><h3 data-number="0.3.2" class="anchored" data-anchor-id="metacritic">
+<span class="header-section-number">0.3.2</span> Metacritic</h3>
+<p>Metacritic is a aggregate review site for Movies, Music, TV, and critically, Video Games. Instead of hosting their own reviews, the sole purpose of Metacritic is to create a hub where every reviewer’s score resides, creating a highly utilized value in game discourse: the Metascore (essentially just a weighted average). Among that score, there are two values to take note of: The <em>critic score</em> is a 0 &lt;-&gt; 100 value that averages the scores of review outlet ratings of a title, and the <em>user score</em>, a 0 &lt;-&gt; 10 value that averages the reviews left by Metacritic users.</p>
+</section></section><section id="data" class="level2" data-number="0.4"><h2 data-number="0.4" class="anchored" data-anchor-id="data">
+<span class="header-section-number">0.4</span> Data</h2>
+<p>For our project we joined 2 Kaggle datasets: one for Howlongtobeat times, and one for Metacritic scores. For Howlongtobeat, the dataset was collected by Kasumil5x in 2020 by scraping the official HLTB website. The dataset contained more information than we needed; Alongside with the Title and Main Story playtime, it also contained the developers, whether it was an expansion, and a multitude of other playtimes that weren’t applicable to our project (how long it would take to 100% comple a game, and how long a co-op mode would take to complete (if it was included)). Our Metacritic dataset was made by Deep Contractor in 2022, by scraping directly from the Metacritic website. Alongside game title, user score, and critic score, the dataset also included which gaming platform it was released for, a summary of the game, and the release date. That last value (with a little wrangling) became a very helpful way of comparing how playtimes have changed over time. With a simple inner_join by name and an extra mutate variable for yearly review averages, our dataset was ready!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># this is a test code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
 </div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'scales' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'scales'
+
+The following object is masked from 'package:purrr':
+
+    discard
+
+The following object is masked from 'package:readr':
+
+    col_factor</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>hltb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data//all-completions.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 795683 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (3): type, platform, time
+dbl (1): id
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>games <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data//games.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 35922 Columns: 16
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (6): title, type, developers, publishers, platforms, genres
+dbl  (7): id, main_story, main_plus_extras, completionist, all_styles, coop,...
+date (3): release_na, release_eu, release_jp
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>metac <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data//all_games.csv"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>realgames <span class="ot">&lt;-</span> games <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> title) <span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">select</span>(name, main_story, main_plus_extras, completionist, all_styles, type, platforms, genres)</span>
+<span id="cb12-5"><a href="#cb12-5"></a></span>
+<span id="cb12-6"><a href="#cb12-6"></a>palala <span class="ot">&lt;-</span> metac <span class="sc">|&gt;</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">inner_join</span>(realgames) <span class="sc">|&gt;</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>  <span class="fu">mutate</span>(<span class="at">gaga =</span> release_date) <span class="sc">|&gt;</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a>  <span class="fu">separate</span>(gaga, <span class="fu">c</span>(<span class="st">"semester"</span>, <span class="st">"year"</span>), <span class="st">"(?&lt;=[,])"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a>  <span class="fu">mutate</span>(<span class="at">release_year =</span> <span class="fu">str_replace</span>(year, <span class="st">" "</span>, <span class="st">""</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a>  <span class="fu">mutate</span>(<span class="at">user_review =</span> <span class="fu">as.integer</span>(user_review)) <span class="sc">|&gt;</span></span>
+<span id="cb12-12"><a href="#cb12-12"></a>  <span class="fu">select</span>(<span class="sc">-</span>summary, <span class="sc">-</span>platform, <span class="sc">-</span>semester, <span class="sc">-</span>year) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(name)`</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in inner_join(metac, realgames): Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 13617 of `x` matches multiple rows in `y`.
+ℹ Row 3596 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship =
+  "many-to-many"` to silence this warning.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `mutate()`.
+ℹ In argument: `user_review = as.integer(user_review)`.
+Caused by warning:
+! NAs introduced by coercion</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">#joins based on name of game and wrangles some values to be functional</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a>USETHISONE <span class="ot">&lt;-</span> palala[<span class="sc">!</span><span class="fu">duplicated</span>(palala<span class="sc">$</span>name), ]</span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="co">#excludes duplicates</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>##Data Insights In pursuit of a better understanding of the data, we started by graphing all points in a simple plot, where Metascore was represented on the y-axis, and average time to beat the main story represented on the x. Note that the range of x is always constricted in our visualizations because of the presence of outliers reaching as far as 248 hours to beat on average.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">filter</span>(main_story <span class="sc">&lt;</span> <span class="dv">100</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Main Story Length"</span>, <span class="at">y =</span> <span class="st">"Metascore"</span>, <span class="at">title =</span> <span class="st">"Metacritic Score vs Amount of Time to Complete Main Story"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>However, it soon became clear that this type of plot was not expedient to our understanding of the data. This is because of the density, number, and clustering of the data points, which meant that certain points overlapped too closely to be discernably different. To this end, we regraphed the data using geom_bin_2d, which creates rectangular regions on a plot which are colored based on how many points fall within the box.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">filter</span>(main_story <span class="sc">&lt;</span> <span class="dv">50</span>) <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(main_story, meta_score )) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">geom_bin_2d</span>( <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">"YlGnBu"</span>, <span class="at">name =</span> <span class="st">"# Games"</span>) <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Score vs. Main Story Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This gives a clearer picture of the basic rundown of the data but does not contradict the most evident observation from our first visualization: that the only really underrepresented quadrant is that of “bad long games”. That is, it is very clear that there are plenty of short games that are rated all sorts of scores: the Metacritic aggregate review score of games under 5 hours range anywhere from the twenties to the nineties. However, among games longer than, say, 50 hours, there are much fewer games with review scores lower than 60. In fact, we can even draw a sort of line (that somewhat resembles the graph of a square root of x) <img src="data//pleaf.png" class="img-fluid" alt="Plot of points, with sparse region labeled “Zone of Relative Exclusion”"> In search of answers, we created category factors to compare the densities using bivariate visualizations and methods we were familiar with, like faceted density plots and box plots. We created a factor categorizing time into “Nothing” (a main story of less than two hours), “Tiny” (a main story of between 2 and 4 hours), “Small” (a main story of between 4 and 7 hours), “Medium” (a main story of between 7 and 10 hours), “Long” (a main story of between 10 and 14 hours), “Huge” (a main story of between 14 to 25 hours), and “Epic” (a main story of longer than 25 hours). This was mostly based on the standard distributions of game lengths (show screenshot) and subjective ratings. Note that NA values had to be excluded here to properly define the factor. Similarly, subjective ratings informed how the Metacritic aggregate scores were categorized, where games below 40 Meta Score were labeled “Shovelware” (Gamer slang for a poorly made game that is “shoveled out” of a production house like dung), games between 40 and 60 Meta Score were labeled “Questionable”, games between 60 and 70 Meta Score were labeled “Mixed”, games between 70 and 78 Meta Score were labeled “Good”, games between 78 and 84 Meta Score were labeled “Great”, games between 84 and 90 Meta score were labeled “Beloved”, and games above 90 Meta Score were labeled “Legendary”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>withcats <span class="ot">&lt;-</span> USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">drop_na</span>(main_story) <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">mutate</span>(<span class="at">main_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb19-4"><a href="#cb19-4"></a>    (main_story <span class="sc">&lt;=</span><span class="dv">2</span>) <span class="sc">~</span> <span class="st">"nothing"</span>,</span>
+<span id="cb19-5"><a href="#cb19-5"></a>    (main_story <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span><span class="dv">2</span>) <span class="sc">~</span> <span class="st">"tiny"</span>,</span>
+<span id="cb19-6"><a href="#cb19-6"></a>    (main_story <span class="sc">&lt;=</span> <span class="dv">10</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span><span class="dv">7</span>) <span class="sc">~</span> <span class="st">"medium"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7"></a>    (main_story <span class="sc">&lt;</span> <span class="dv">14</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">~</span> <span class="st">"long"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8"></a>    (main_story <span class="sc">&lt;</span> <span class="dv">25</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;=</span><span class="dv">14</span>) <span class="sc">~</span> <span class="st">"huge"</span>,</span>
+<span id="cb19-9"><a href="#cb19-9"></a>    (main_story <span class="sc">&gt;=</span> <span class="dv">25</span>) <span class="sc">~</span> <span class="st">"epic"</span>,</span>
+<span id="cb19-10"><a href="#cb19-10"></a>    <span class="at">.default =</span> <span class="st">"short"</span></span>
+<span id="cb19-11"><a href="#cb19-11"></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb19-12"><a href="#cb19-12"></a>    <span class="fu">mutate</span>(<span class="at">main_cat =</span> <span class="fu">fct_relevel</span>(main_cat, <span class="fu">c</span>(<span class="st">"nothing"</span>, <span class="st">"tiny"</span>, <span class="st">"short"</span>, <span class="st">"medium"</span>, <span class="st">"long"</span>, <span class="st">"huge"</span>, <span class="st">"epic"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb19-13"><a href="#cb19-13"></a>  <span class="co">#creates time based categories, subjective and mostly based on strandard distribution quantiles</span></span>
+<span id="cb19-14"><a href="#cb19-14"></a><span class="fu">mutate</span>(<span class="at">meta_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb19-15"><a href="#cb19-15"></a>    (meta_score <span class="sc">&lt;=</span><span class="dv">40</span>) <span class="sc">~</span> <span class="st">"shovelware"</span>,</span>
+<span id="cb19-16"><a href="#cb19-16"></a>    (meta_score <span class="sc">&lt;=</span> <span class="dv">60</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span><span class="dv">40</span>) <span class="sc">~</span> <span class="st">"questionable"</span>,</span>
+<span id="cb19-17"><a href="#cb19-17"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">70</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span><span class="dv">60</span>) <span class="sc">~</span> <span class="st">"mixed"</span>,</span>
+<span id="cb19-18"><a href="#cb19-18"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">84</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span> <span class="dv">78</span>) <span class="sc">~</span> <span class="st">"great"</span>,</span>
+<span id="cb19-19"><a href="#cb19-19"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">90</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;=</span><span class="dv">84</span>) <span class="sc">~</span> <span class="st">"beloved"</span>,</span>
+<span id="cb19-20"><a href="#cb19-20"></a>    (meta_score <span class="sc">&gt;=</span> <span class="dv">90</span>) <span class="sc">~</span> <span class="st">"legendary"</span>,</span>
+<span id="cb19-21"><a href="#cb19-21"></a>    <span class="at">.default =</span> <span class="st">"good"</span></span>
+<span id="cb19-22"><a href="#cb19-22"></a>)) <span class="sc">|&gt;</span></span>
+<span id="cb19-23"><a href="#cb19-23"></a>    <span class="fu">mutate</span>(<span class="at">meta_cat =</span> <span class="fu">fct_relevel</span>(meta_cat, <span class="fu">c</span>(<span class="st">"shovelware"</span>, <span class="st">"questionable"</span>, <span class="st">"mixed"</span>, <span class="st">"good"</span>, <span class="st">"great"</span>, <span class="st">"beloved"</span>, <span class="st">"legendary"</span>)))</span>
+<span id="cb19-24"><a href="#cb19-24"></a><span class="co">#creates score based categories, mostly subjective</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The subjective rating was, in this case, systematic: data was surveyed and associated with the researcher’s knowledge of how certain games are generally regarded. Attention must also be paid to the wide range of the “Legendary” category: above a certain threshold, very high ratings are rare, and are fairly subjective, especially because of the aggregate nature of scores. This means this section all really melts together.</p>
+<p>Using these categories, we were able to construct bivariate box and density plots to show the relative frequencies of lengths or score in the corresponding categories of score or length.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> meta_score, <span class="at">x=</span>main_cat)) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Main Story Length"</span>, <span class="at">title=</span><span class="st">"Score Distribution by Length Categories"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> main_cat) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Critic Score"</span>, <span class="at">title=</span><span class="st">"Score Distribution by Length Categories"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="index_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">#distribution graphs based on length categories vs scores</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> main_story, <span class="at">x=</span>meta_cat)) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Critic Evaluation"</span>, <span class="at">y=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Length Distribution by Score Categories"</span>) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">75</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 31 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"gold"</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> meta_cat) <span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">25</span>)) <span class="sc">+</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Length Distribution by Score Categories"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 672 rows containing non-finite outside the scale range
+(`stat_density()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="index_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co">#distribution graphs based on length vs score categories</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Arranged by length categories, visualization shows a possible gentle trend of increased review scores among longer games, but this is generally unconvincing, particularly judging by the large overlap in scores between length categories. This can be attributed particularly to score levelling on Metacritic: so many scores are in the range of around 80 Metascore that it’s very difficult to compare them by length.</p>
+<p>On the other hand, when arranged into categories by score, it is easier to see trends of total game-time among the extremities of low and high scores. The box plot, particularly, shows how the 3rd quartile of length grows higher among better-rated games. This is particularly true among the very-best regarded games, which we termed “legendary”. This does not, though, restrict the 1st quartile of better games as much as might be expected: again, the difference between “beloved” and “legendary” games is markedly more significant for the 3rd than the 1st quartile of lengths. We also see the relative rarity of longer games of exceptionally poor regard (those we referred to as “shovelware” earlier): while most quality categories have healthy bundles of outliers above outside of their most common ranges, “shovelware” is restricted to a scarce few, with a tight deviation hovering somewhere around an average length of ~5 hours.</p>
+<p>This data collectively points to the fact that, while shorter games can vary in quality, and indeed there are very well regarded short games, there are very few longer games that are afforded the sort of universal disrepute which lands one in the bottom two-fifths of Metacritic’s scoring system.</p>
+<p>##Conclusions and Potential Explanations</p>
+<p>This takeaway, that games do not necessarily need to be long to be loved, but those that are hated are scarcely long, while contrasting with the initial ideas underlying this investigation, are not particularly surprising. What it does make very clear is that an impetus to make games long in order to improve them is completely unnecessary, as we say many examples of well rated games of shorter length.</p>
+<p>On the other hand, why the worst regarded games were restricted mostly to short lengths could be due to several factors. Most longer games require a larger budget, longer development time, and more care to be put into construction. While these aspects do not always lead to a more enjoyable game, a certain amount of them are usually necessary for a game to be functional and coherent. Aforementioned “Shovelware” has a reputation of lacking these resources which would be required to develop a longer game. Furthermore, there is a baseline level of enjoyment and respect that one both needs and develops to finish a game longer than, say, 10, 15 hours. Finishing a game of this length often lets someone at least adjust to the games quirks, changing their opinion of the game.</p>
+<p>Outliers to what we called the “zone of relative exclusion” (the lack of longer games of poor quality) included titles such as “7 Days to Die”, a survival game in continuous development since 2013, with a 1.0 releasing in 2024. Because of the open-ended and unfinished nature of the gameplay, length may be difficult to rate for users of howlongtobeat, and playtime is extending using randomly generated content</p>
+<p>##Limitations and Avenues for Further Research</p>
+<p>The data used in this project is 3 to 5 years old, and surely much has changed in the industry in this time; even comapred short spans within our data has shown difference in length and ratings by release year. Further analysis might also be done into other metrics provided by howlongtobeat, suchas the length of extra content in games. Data visualizations in this project were limited in scope in favor of readability, excluding outliers in a way that did not neccesarily paint a complete picture. Alternative visualization methods may be useful in this pursuit. Lastly, much data was lost in the joining and wrangling processes. FInding where this might be rectified would give us more complete data.</p>
 
 
 <!-- -->
 
-
-</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -893,7 +1142,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation column-page-right"><div class="nav-page nav-page-previous">
+</script><nav class="page-navigation column-body"><div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
       <a href="./src/et/elina-p.html" class="pagination-link" aria-label="Effective Teamwork">
@@ -901,18 +1150,168 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> "Report"</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">  echo: true      # change to true to show the code</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="an">code-fold:</span><span class="co"> false  # change to true to fold the code chunks</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">---</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a>Your report will go here.</span>
-<span id="cb2-9"><a href="#cb2-9"></a></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="in">```{r}</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="co"># this is a test code</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb28" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1"></a><span class="co">---</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="an">title:</span><span class="co"> "Report"</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="co">  echo: true      # change to true to show the code</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a><span class="an">code-fold:</span><span class="co"> false  # change to true to fold the code chunks</span></span>
+<span id="cb28-6"><a href="#cb28-6"></a><span class="co">---</span></span>
+<span id="cb28-7"><a href="#cb28-7"></a></span>
+<span id="cb28-8"><a href="#cb28-8"></a>##Presentation and Video</span>
+<span id="cb28-9"><a href="#cb28-9"></a>{{&lt; video data//videokojima.mp4 &gt;}}</span>
+<span id="cb28-10"><a href="#cb28-10"></a>Click <span class="co">[</span><span class="ot">here</span><span class="co">](//data//LaLaLaPrez.pdf)</span> to see our presentation</span>
+<span id="cb28-11"><a href="#cb28-11"></a></span>
+<span id="cb28-12"><a href="#cb28-12"></a><span class="fu">## Introduction</span></span>
+<span id="cb28-13"><a href="#cb28-13"></a>The first Assassin's Creed game was released in 2007, and since has become a flagship title for Ubisoft, the publishers of the game. In order to complete the main story and extra content of the game, it's estimated that it would take you 20 hours total, which was typical of games then. Fast forward 13 years later, and 2020's Assassin's Creed: Valhalla's main story and side missions are estimated to take a total of 100 hours. When released, Valhalla was a notable outlier for its massive time to beat. But while most games don't strive to be *that* long, trends in gaming have made it so a long time to beat is a prized ideal for some developers. However, this strive to make the game with the most content possible comes at a cost. The price of game development has only gotten higher with time, and most companies cannot afford to pack a product with such a high amount of unique content. But neither did Assassin's Creed Valhalla! A growing issue in the modern video game market is to have games released with around 20 hours of original unique content, and have the rest of the playtime be taken up with the same missions, assets, and content slightly copied and pasted somewhere else. </span>
+<span id="cb28-14"><a href="#cb28-14"></a></span>
+<span id="cb28-15"><a href="#cb28-15"></a><span class="fu">## Research Question</span></span>
+<span id="cb28-16"><a href="#cb28-16"></a>Depending on where you get your video game reviews from, it may not be apparent just how much bloat a game might be filled with. Alongside it, some reviewers may simply look at the playtime without considering how much of it is unique, causing this bloat to go unseen. Every gamer has their own preferences on how long they like their games to be, but so does every reviewer. In hopes of painting a fuller picture of this subject, we took data from Howlongtobeat and Metacritic in order to answer our research question: *do longer video games get better review scores?*</span>
+<span id="cb28-17"><a href="#cb28-17"></a></span>
+<span id="cb28-18"><a href="#cb28-18"></a><span class="fu">## Background</span></span>
+<span id="cb28-19"><a href="#cb28-19"></a>For more context on our chosen sources...</span>
+<span id="cb28-20"><a href="#cb28-20"></a></span>
+<span id="cb28-21"><a href="#cb28-21"></a><span class="fu">### Howlongtobeat</span></span>
+<span id="cb28-22"><a href="#cb28-22"></a>Howlongtobeat is a video game cataloging service that, unsurprisingly, tracks how long a video game is to beat. One problem about measuring playtime is that each person completes games at their own speed, so using a service like Howlongtobeat allows us to get a much more accurate average based on user submissions than one person giving their feedback.</span>
+<span id="cb28-23"><a href="#cb28-23"></a></span>
+<span id="cb28-24"><a href="#cb28-24"></a><span class="fu">### Metacritic</span></span>
+<span id="cb28-25"><a href="#cb28-25"></a>Metacritic is a aggregate review site for Movies, Music, TV, and critically, Video Games. Instead of hosting their own reviews, the sole purpose of Metacritic is to create a hub where every reviewer's score resides, creating a highly utilized value in game discourse: the Metascore (essentially just a weighted average). Among that score, there are two values to take note of: The *critic score* is a 0 &lt;-&gt; 100 value that averages the scores of review outlet ratings of a title, and the *user score*, a 0 &lt;-&gt; 10 value that averages the reviews left by Metacritic users. </span>
+<span id="cb28-26"><a href="#cb28-26"></a></span>
+<span id="cb28-27"><a href="#cb28-27"></a><span class="fu">## Data</span></span>
+<span id="cb28-28"><a href="#cb28-28"></a>For our project we joined 2 Kaggle datasets: one for Howlongtobeat times, and one for Metacritic scores. For Howlongtobeat, the dataset was collected by Kasumil5x in 2020 by scraping the official HLTB website. The dataset contained more information than we needed; Alongside with the Title and Main Story playtime, it also contained the developers, whether it was an expansion, and a multitude of other playtimes that weren't applicable to our project (how long it would take to 100% comple a game, and how long a co-op mode would take to complete (if it was included)). </span>
+<span id="cb28-29"><a href="#cb28-29"></a>Our Metacritic dataset was made by Deep Contractor in 2022, by scraping directly from the Metacritic website. Alongside game title, user score, and critic score, the dataset also included which gaming platform it was released for, a summary of the game, and the release date. That last value (with a little wrangling) became a very helpful way of comparing how playtimes have changed over time. With a simple inner_join by name and an extra mutate variable for yearly review averages, our dataset was ready!</span>
+<span id="cb28-30"><a href="#cb28-30"></a></span>
+<span id="cb28-33"><a href="#cb28-33"></a><span class="in">```{r}</span></span>
+<span id="cb28-34"><a href="#cb28-34"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb28-35"><a href="#cb28-35"></a><span class="fu">library</span>(scales)</span>
+<span id="cb28-36"><a href="#cb28-36"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb28-37"><a href="#cb28-37"></a>hltb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data//all-completions.csv"</span>)</span>
+<span id="cb28-38"><a href="#cb28-38"></a>games <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data//games.csv"</span>)</span>
+<span id="cb28-39"><a href="#cb28-39"></a>metac <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data//all_games.csv"</span>)</span>
+<span id="cb28-40"><a href="#cb28-40"></a>realgames <span class="ot">&lt;-</span> games <span class="sc">|&gt;</span></span>
+<span id="cb28-41"><a href="#cb28-41"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> title) <span class="sc">|&gt;</span></span>
+<span id="cb28-42"><a href="#cb28-42"></a>  <span class="fu">select</span>(name, main_story, main_plus_extras, completionist, all_styles, type, platforms, genres)</span>
+<span id="cb28-43"><a href="#cb28-43"></a></span>
+<span id="cb28-44"><a href="#cb28-44"></a>palala <span class="ot">&lt;-</span> metac <span class="sc">|&gt;</span></span>
+<span id="cb28-45"><a href="#cb28-45"></a>  <span class="fu">inner_join</span>(realgames) <span class="sc">|&gt;</span></span>
+<span id="cb28-46"><a href="#cb28-46"></a>  <span class="fu">mutate</span>(<span class="at">gaga =</span> release_date) <span class="sc">|&gt;</span></span>
+<span id="cb28-47"><a href="#cb28-47"></a>  <span class="fu">separate</span>(gaga, <span class="fu">c</span>(<span class="st">"semester"</span>, <span class="st">"year"</span>), <span class="st">"(?&lt;=[,])"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-48"><a href="#cb28-48"></a>  <span class="fu">mutate</span>(<span class="at">release_year =</span> <span class="fu">str_replace</span>(year, <span class="st">" "</span>, <span class="st">""</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb28-49"><a href="#cb28-49"></a>  <span class="fu">mutate</span>(<span class="at">user_review =</span> <span class="fu">as.integer</span>(user_review)) <span class="sc">|&gt;</span></span>
+<span id="cb28-50"><a href="#cb28-50"></a>  <span class="fu">select</span>(<span class="sc">-</span>summary, <span class="sc">-</span>platform, <span class="sc">-</span>semester, <span class="sc">-</span>year) </span>
+<span id="cb28-51"><a href="#cb28-51"></a><span class="co">#joins based on name of game and wrangles some values to be functional</span></span>
+<span id="cb28-52"><a href="#cb28-52"></a></span>
+<span id="cb28-53"><a href="#cb28-53"></a>USETHISONE <span class="ot">&lt;-</span> palala[<span class="sc">!</span><span class="fu">duplicated</span>(palala<span class="sc">$</span>name), ]</span>
+<span id="cb28-54"><a href="#cb28-54"></a><span class="co">#excludes duplicates</span></span>
+<span id="cb28-55"><a href="#cb28-55"></a><span class="in">```</span></span>
+<span id="cb28-56"><a href="#cb28-56"></a>##Data Insights</span>
+<span id="cb28-57"><a href="#cb28-57"></a>In pursuit of a better understanding of the data, we started by graphing all points in a simple plot, where Metascore was represented on the y-axis, and average time to beat the main story represented on the x. Note that the range of x is always constricted in our visualizations because of the presence of outliers reaching as far as 248 hours to beat on average.</span>
+<span id="cb28-58"><a href="#cb28-58"></a></span>
+<span id="cb28-61"><a href="#cb28-61"></a><span class="in">```{r}</span></span>
+<span id="cb28-62"><a href="#cb28-62"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb28-63"><a href="#cb28-63"></a>  <span class="fu">filter</span>(main_story <span class="sc">&lt;</span> <span class="dv">100</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-64"><a href="#cb28-64"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb28-65"><a href="#cb28-65"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb28-66"><a href="#cb28-66"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Main Story Length"</span>, <span class="at">y =</span> <span class="st">"Metascore"</span>, <span class="at">title =</span> <span class="st">"Metacritic Score vs Amount of Time to Complete Main Story"</span>)</span>
+<span id="cb28-67"><a href="#cb28-67"></a><span class="in">```</span></span>
+<span id="cb28-68"><a href="#cb28-68"></a></span>
+<span id="cb28-69"><a href="#cb28-69"></a>However, it soon became clear that this type of plot was not expedient to our understanding of the data. This is because of the density, number, and clustering of the data points, which meant that certain points overlapped too closely to be discernably different. To this end, we regraphed the data using geom_bin_2d, which creates rectangular regions on a plot which are colored based on how many points fall within the box. </span>
+<span id="cb28-70"><a href="#cb28-70"></a></span>
+<span id="cb28-73"><a href="#cb28-73"></a><span class="in">```{r}</span></span>
+<span id="cb28-74"><a href="#cb28-74"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb28-75"><a href="#cb28-75"></a>  <span class="fu">filter</span>(main_story <span class="sc">&lt;</span> <span class="dv">50</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-76"><a href="#cb28-76"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(main_story, meta_score )) <span class="sc">+</span></span>
+<span id="cb28-77"><a href="#cb28-77"></a>  <span class="fu">geom_bin_2d</span>( <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb28-78"><a href="#cb28-78"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">"YlGnBu"</span>, <span class="at">name =</span> <span class="st">"# Games"</span>) <span class="sc">+</span></span>
+<span id="cb28-79"><a href="#cb28-79"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Score vs. Main Story Length"</span>)</span>
+<span id="cb28-80"><a href="#cb28-80"></a><span class="in">```</span></span>
+<span id="cb28-81"><a href="#cb28-81"></a></span>
+<span id="cb28-82"><a href="#cb28-82"></a>This gives a clearer picture of the basic rundown of the data but does not contradict the most evident observation from our first visualization: that the only really underrepresented quadrant is that of “bad long games”. That is, it is very clear that there are plenty of short games that are rated all sorts of scores: the Metacritic aggregate review score of games under 5 hours range anywhere from the twenties to the nineties. However, among games longer than, say, 50 hours, there are much fewer games with review scores lower than 60. In fact, we can even draw a sort of line (that somewhat resembles the graph of a square root of x)</span>
+<span id="cb28-83"><a href="#cb28-83"></a><span class="al">![Plot of points, with sparse region labeled "Zone of Relative Exclusion"](data//pleaf.png)</span></span>
+<span id="cb28-84"><a href="#cb28-84"></a>In search of answers, we created category factors to compare the densities using bivariate visualizations and methods we were familiar with, like faceted density plots and box plots.</span>
+<span id="cb28-85"><a href="#cb28-85"></a>We created a factor categorizing time into “Nothing” (a main story of less than two hours), “Tiny” (a main story of between 2 and 4 hours), “Small” (a main story of between 4 and 7 hours), “Medium” (a main story of between 7 and 10 hours),  “Long” (a main story of between 10 and 14 hours), “Huge” (a main story of between 14 to 25 hours), and “Epic” (a main story of longer than 25 hours).  This was mostly based on the standard distributions of game lengths (show screenshot) and subjective ratings. Note that NA values had to be excluded here to properly define the factor.</span>
+<span id="cb28-86"><a href="#cb28-86"></a>Similarly, subjective ratings informed how the Metacritic aggregate scores were categorized, where games below 40 Meta Score were labeled “Shovelware” (Gamer slang for a poorly made game that is “shoveled out” of a production house like dung), games between 40 and 60 Meta Score were labeled “Questionable”, games between 60 and 70 Meta Score were labeled “Mixed”, games between 70 and 78 Meta Score were labeled “Good”, games between 78 and 84 Meta Score were labeled “Great”, games between 84 and 90 Meta score were labeled “Beloved”, and games above 90 Meta Score were labeled “Legendary”. </span>
+<span id="cb28-87"><a href="#cb28-87"></a></span>
+<span id="cb28-90"><a href="#cb28-90"></a><span class="in">```{r}</span></span>
+<span id="cb28-91"><a href="#cb28-91"></a>withcats <span class="ot">&lt;-</span> USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb28-92"><a href="#cb28-92"></a>  <span class="fu">drop_na</span>(main_story) <span class="sc">|&gt;</span></span>
+<span id="cb28-93"><a href="#cb28-93"></a>  <span class="fu">mutate</span>(<span class="at">main_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb28-94"><a href="#cb28-94"></a>    (main_story <span class="sc">&lt;=</span><span class="dv">2</span>) <span class="sc">~</span> <span class="st">"nothing"</span>,</span>
+<span id="cb28-95"><a href="#cb28-95"></a>    (main_story <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span><span class="dv">2</span>) <span class="sc">~</span> <span class="st">"tiny"</span>,</span>
+<span id="cb28-96"><a href="#cb28-96"></a>    (main_story <span class="sc">&lt;=</span> <span class="dv">10</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span><span class="dv">7</span>) <span class="sc">~</span> <span class="st">"medium"</span>,</span>
+<span id="cb28-97"><a href="#cb28-97"></a>    (main_story <span class="sc">&lt;</span> <span class="dv">14</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">~</span> <span class="st">"long"</span>,</span>
+<span id="cb28-98"><a href="#cb28-98"></a>    (main_story <span class="sc">&lt;</span> <span class="dv">25</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;=</span><span class="dv">14</span>) <span class="sc">~</span> <span class="st">"huge"</span>,</span>
+<span id="cb28-99"><a href="#cb28-99"></a>    (main_story <span class="sc">&gt;=</span> <span class="dv">25</span>) <span class="sc">~</span> <span class="st">"epic"</span>,</span>
+<span id="cb28-100"><a href="#cb28-100"></a>    <span class="at">.default =</span> <span class="st">"short"</span></span>
+<span id="cb28-101"><a href="#cb28-101"></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb28-102"><a href="#cb28-102"></a>    <span class="fu">mutate</span>(<span class="at">main_cat =</span> <span class="fu">fct_relevel</span>(main_cat, <span class="fu">c</span>(<span class="st">"nothing"</span>, <span class="st">"tiny"</span>, <span class="st">"short"</span>, <span class="st">"medium"</span>, <span class="st">"long"</span>, <span class="st">"huge"</span>, <span class="st">"epic"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb28-103"><a href="#cb28-103"></a>  <span class="co">#creates time based categories, subjective and mostly based on strandard distribution quantiles</span></span>
+<span id="cb28-104"><a href="#cb28-104"></a><span class="fu">mutate</span>(<span class="at">meta_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb28-105"><a href="#cb28-105"></a>    (meta_score <span class="sc">&lt;=</span><span class="dv">40</span>) <span class="sc">~</span> <span class="st">"shovelware"</span>,</span>
+<span id="cb28-106"><a href="#cb28-106"></a>    (meta_score <span class="sc">&lt;=</span> <span class="dv">60</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span><span class="dv">40</span>) <span class="sc">~</span> <span class="st">"questionable"</span>,</span>
+<span id="cb28-107"><a href="#cb28-107"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">70</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span><span class="dv">60</span>) <span class="sc">~</span> <span class="st">"mixed"</span>,</span>
+<span id="cb28-108"><a href="#cb28-108"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">84</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span> <span class="dv">78</span>) <span class="sc">~</span> <span class="st">"great"</span>,</span>
+<span id="cb28-109"><a href="#cb28-109"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">90</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;=</span><span class="dv">84</span>) <span class="sc">~</span> <span class="st">"beloved"</span>,</span>
+<span id="cb28-110"><a href="#cb28-110"></a>    (meta_score <span class="sc">&gt;=</span> <span class="dv">90</span>) <span class="sc">~</span> <span class="st">"legendary"</span>,</span>
+<span id="cb28-111"><a href="#cb28-111"></a>    <span class="at">.default =</span> <span class="st">"good"</span></span>
+<span id="cb28-112"><a href="#cb28-112"></a>)) <span class="sc">|&gt;</span></span>
+<span id="cb28-113"><a href="#cb28-113"></a>    <span class="fu">mutate</span>(<span class="at">meta_cat =</span> <span class="fu">fct_relevel</span>(meta_cat, <span class="fu">c</span>(<span class="st">"shovelware"</span>, <span class="st">"questionable"</span>, <span class="st">"mixed"</span>, <span class="st">"good"</span>, <span class="st">"great"</span>, <span class="st">"beloved"</span>, <span class="st">"legendary"</span>)))</span>
+<span id="cb28-114"><a href="#cb28-114"></a><span class="co">#creates score based categories, mostly subjective</span></span>
+<span id="cb28-115"><a href="#cb28-115"></a><span class="in">```</span></span>
+<span id="cb28-116"><a href="#cb28-116"></a></span>
+<span id="cb28-117"><a href="#cb28-117"></a>The subjective rating was, in this case, systematic: data was surveyed and associated with the researcher’s knowledge of how certain games are generally regarded. Attention must also be paid to the wide range of the “Legendary” category: above a certain threshold, very high ratings are rare, and are fairly subjective, especially because of the aggregate nature of scores. This means this section all really melts together. </span>
+<span id="cb28-118"><a href="#cb28-118"></a></span>
+<span id="cb28-119"><a href="#cb28-119"></a>Using these categories, we were able to construct bivariate box and density plots to show the relative frequencies of lengths or score in the corresponding categories of score or length.</span>
+<span id="cb28-120"><a href="#cb28-120"></a></span>
+<span id="cb28-123"><a href="#cb28-123"></a><span class="in">```{r}</span></span>
+<span id="cb28-124"><a href="#cb28-124"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb28-125"><a href="#cb28-125"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> meta_score, <span class="at">x=</span>main_cat)) <span class="sc">+</span></span>
+<span id="cb28-126"><a href="#cb28-126"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb28-127"><a href="#cb28-127"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Main Story Length"</span>, <span class="at">title=</span><span class="st">"Score Distribution by Length Categories"</span>)</span>
+<span id="cb28-128"><a href="#cb28-128"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb28-129"><a href="#cb28-129"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb28-130"><a href="#cb28-130"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb28-131"><a href="#cb28-131"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> main_cat) <span class="sc">+</span></span>
+<span id="cb28-132"><a href="#cb28-132"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Critic Score"</span>, <span class="at">title=</span><span class="st">"Score Distribution by Length Categories"</span>)</span>
+<span id="cb28-133"><a href="#cb28-133"></a><span class="co">#distribution graphs based on length categories vs scores</span></span>
+<span id="cb28-134"><a href="#cb28-134"></a><span class="in">```</span></span>
+<span id="cb28-135"><a href="#cb28-135"></a></span>
+<span id="cb28-138"><a href="#cb28-138"></a><span class="in">```{r}</span></span>
+<span id="cb28-139"><a href="#cb28-139"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb28-140"><a href="#cb28-140"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> main_story, <span class="at">x=</span>meta_cat)) <span class="sc">+</span></span>
+<span id="cb28-141"><a href="#cb28-141"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb28-142"><a href="#cb28-142"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Critic Evaluation"</span>, <span class="at">y=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Length Distribution by Score Categories"</span>) <span class="sc">+</span></span>
+<span id="cb28-143"><a href="#cb28-143"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">75</span>))</span>
+<span id="cb28-144"><a href="#cb28-144"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb28-145"><a href="#cb28-145"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
+<span id="cb28-146"><a href="#cb28-146"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"gold"</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb28-147"><a href="#cb28-147"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> meta_cat) <span class="sc">+</span></span>
+<span id="cb28-148"><a href="#cb28-148"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">25</span>)) <span class="sc">+</span></span>
+<span id="cb28-149"><a href="#cb28-149"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Length Distribution by Score Categories"</span>)</span>
+<span id="cb28-150"><a href="#cb28-150"></a><span class="co">#distribution graphs based on length vs score categories</span></span>
+<span id="cb28-151"><a href="#cb28-151"></a><span class="in">```</span></span>
+<span id="cb28-152"><a href="#cb28-152"></a></span>
+<span id="cb28-153"><a href="#cb28-153"></a>Arranged by length categories, visualization shows a possible gentle trend of increased review scores among longer games, but this is generally unconvincing, particularly judging by the large overlap in scores between length categories. This can be attributed particularly to score levelling on Metacritic: so many scores are in the range of around 80 Metascore that it’s very difficult to compare them by length.</span>
+<span id="cb28-154"><a href="#cb28-154"></a></span>
+<span id="cb28-155"><a href="#cb28-155"></a>On the other hand, when arranged into categories by score, it is easier to see trends of total game-time among the extremities of low and high scores. The box plot, particularly, shows how the 3rd quartile of length grows higher among better-rated games. This is particularly true among the very-best regarded games, which we termed “legendary”. This does not, though, restrict the 1st quartile of better games as much as might be expected: again, the difference between “beloved” and “legendary” games is markedly more significant for the 3rd than the 1st quartile of lengths. We also see the relative rarity of longer games of exceptionally poor regard (those we referred to as “shovelware” earlier): while most quality categories have healthy bundles of outliers above outside of their most common ranges, “shovelware” is restricted to a scarce few, with a tight deviation hovering somewhere around an average length of ~5 hours. </span>
+<span id="cb28-156"><a href="#cb28-156"></a></span>
+<span id="cb28-157"><a href="#cb28-157"></a>This data collectively points to the fact that, while shorter games can vary in quality, and indeed there are very well regarded short games, there are very few longer games that are afforded the sort of universal disrepute which lands one in the bottom two-fifths of Metacritic’s scoring system.</span>
+<span id="cb28-158"><a href="#cb28-158"></a></span>
+<span id="cb28-159"><a href="#cb28-159"></a>##Conclusions and Potential Explanations</span>
+<span id="cb28-160"><a href="#cb28-160"></a></span>
+<span id="cb28-161"><a href="#cb28-161"></a>This takeaway, that games do not necessarily need to be long to be loved, but those that are hated are scarcely long, while contrasting with the initial ideas underlying this investigation, are not particularly surprising.</span>
+<span id="cb28-162"><a href="#cb28-162"></a>What it does make very clear is that an impetus to make games long in order to improve them is completely unnecessary, as we say many examples of well rated games of shorter length.</span>
+<span id="cb28-163"><a href="#cb28-163"></a></span>
+<span id="cb28-164"><a href="#cb28-164"></a>On the other hand, why the worst regarded games were restricted mostly to short lengths could be due to several factors. Most longer games require a larger budget, longer development time, and more care to be put into construction. While these aspects do not always lead to a more enjoyable game, a certain amount of them are usually necessary for a game to be functional and coherent. Aforementioned “Shovelware” has a reputation of lacking these resources which would be required to develop a longer game. Furthermore, there is a baseline level of enjoyment and respect that one both needs and develops to finish a game longer than, say, 10, 15 hours. Finishing a game of this length often lets someone at least adjust to the games quirks, changing their opinion of the game. </span>
+<span id="cb28-165"><a href="#cb28-165"></a></span>
+<span id="cb28-166"><a href="#cb28-166"></a>Outliers to what we called the “zone of relative exclusion” (the lack of longer games of poor quality) included titles such as “7 Days to Die”, a survival game in continuous development since 2013, with a 1.0 releasing in 2024. Because of the open-ended and unfinished nature of the gameplay,  length may be difficult to rate for users of howlongtobeat, and playtime is extending using randomly generated content</span>
+<span id="cb28-167"><a href="#cb28-167"></a></span>
+<span id="cb28-168"><a href="#cb28-168"></a></span>
+<span id="cb28-169"><a href="#cb28-169"></a>##Limitations and Avenues for Further Research </span>
+<span id="cb28-170"><a href="#cb28-170"></a></span>
+<span id="cb28-171"><a href="#cb28-171"></a>The data used in this project is 3 to 5 years old, and surely much has changed in the industry in this time; even comapred short spans within our data has shown difference in length and ratings by release year.</span>
+<span id="cb28-172"><a href="#cb28-172"></a>Further analysis might also be done into other metrics provided by howlongtobeat, suchas the length of extra content in games.</span>
+<span id="cb28-173"><a href="#cb28-173"></a>Data visualizations in this project were limited in scope in favor of readability, excluding outliers in a way that did not neccesarily paint a complete picture. Alternative visualization methods may be useful in this pursuit.</span>
+<span id="cb28-174"><a href="#cb28-174"></a>Lastly, much data was lost in the joining and wrangling processes. FInding where this might be rectified would give us more complete data.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
@@ -927,7 +1326,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>
   </div>
-</footer>
+</footer><script>videojs(video_shortcode_videojs_video1);</script>
 
 
 <script src="site_libs/quarto-html/zenscroll-min.js"></script>

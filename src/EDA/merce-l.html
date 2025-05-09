@@ -256,10 +256,46 @@ cookieconsent.run({
 
 
 </header><div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(scales)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(ggridges)</span>
-<span id="cb1-4"><a href="#cb1-4"></a>hltb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"..//..//data//all-completions.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'scales' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'scales'
+
+The following object is masked from 'package:purrr':
+
+    discard
+
+The following object is masked from 'package:readr':
+
+    col_factor</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">library</span>(ggridges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggridges' was built under R version 4.4.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>hltb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"..//..//data//all-completions.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 795683 Columns: 4
 ── Column specification ────────────────────────────────────────────────────────
@@ -270,7 +306,7 @@ dbl (1): id
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>games <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"..//..//data//games.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>games <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"..//..//data//games.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 35922 Columns: 16
 ── Column specification ────────────────────────────────────────────────────────
@@ -282,18 +318,18 @@ date (3): release_na, release_eu, release_jp
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>metac <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"..//..//data//all_games.csv"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a>realgames <span class="ot">&lt;-</span> games <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> title) <span class="sc">|&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">select</span>(name, main_story, main_plus_extras, completionist, all_styles, type, platforms, genres)</span>
-<span id="cb5-5"><a href="#cb5-5"></a></span>
-<span id="cb5-6"><a href="#cb5-6"></a>palala <span class="ot">&lt;-</span> metac <span class="sc">|&gt;</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a>  <span class="fu">inner_join</span>(realgames) <span class="sc">|&gt;</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a>  <span class="fu">mutate</span>(<span class="at">gaga =</span> release_date) <span class="sc">|&gt;</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a>  <span class="fu">separate</span>(gaga, <span class="fu">c</span>(<span class="st">"semester"</span>, <span class="st">"year"</span>), <span class="st">"(?&lt;=[,])"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a>  <span class="fu">mutate</span>(<span class="at">release_year =</span> <span class="fu">str_replace</span>(year, <span class="st">" "</span>, <span class="st">""</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a>  <span class="fu">mutate</span>(<span class="at">user_review =</span> <span class="fu">as.integer</span>(user_review)) <span class="sc">|&gt;</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a>  <span class="fu">select</span>(<span class="sc">-</span>summary, <span class="sc">-</span>platform, <span class="sc">-</span>semester, <span class="sc">-</span>year) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>metac <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"..//..//data//all_games.csv"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2"></a>realgames <span class="ot">&lt;-</span> games <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> title) <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">select</span>(name, main_story, main_plus_extras, completionist, all_styles, type, platforms, genres)</span>
+<span id="cb14-5"><a href="#cb14-5"></a></span>
+<span id="cb14-6"><a href="#cb14-6"></a>palala <span class="ot">&lt;-</span> metac <span class="sc">|&gt;</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a>  <span class="fu">inner_join</span>(realgames) <span class="sc">|&gt;</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a>  <span class="fu">mutate</span>(<span class="at">gaga =</span> release_date) <span class="sc">|&gt;</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a>  <span class="fu">separate</span>(gaga, <span class="fu">c</span>(<span class="st">"semester"</span>, <span class="st">"year"</span>), <span class="st">"(?&lt;=[,])"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-10"><a href="#cb14-10"></a>  <span class="fu">mutate</span>(<span class="at">release_year =</span> <span class="fu">str_replace</span>(year, <span class="st">" "</span>, <span class="st">""</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb14-11"><a href="#cb14-11"></a>  <span class="fu">mutate</span>(<span class="at">user_review =</span> <span class="fu">as.integer</span>(user_review)) <span class="sc">|&gt;</span></span>
+<span id="cb14-12"><a href="#cb14-12"></a>  <span class="fu">select</span>(<span class="sc">-</span>summary, <span class="sc">-</span>platform, <span class="sc">-</span>semester, <span class="sc">-</span>year) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(name)`</code></pre>
 </div>
@@ -310,31 +346,30 @@ date (3): release_na, release_eu, release_jp
 Caused by warning:
 ! NAs introduced by coercion</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>USETHISONE <span class="ot">&lt;-</span> palala[<span class="sc">!</span><span class="fu">duplicated</span>(palala<span class="sc">$</span>name), ] <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">drop_na</span>(main_story)</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#same as elina's code but i use inner_join and drop_na to exclude NAs so that my categories work properly</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>USETHISONE <span class="ot">&lt;-</span> palala[<span class="sc">!</span><span class="fu">duplicated</span>(palala<span class="sc">$</span>name), ]</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="co">#same as elina's code but i use inner_join and drop_na (MOVED TO LATER) to exclude NAs so that my categories work properly</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">summary</span>(USETHISONE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">summary</span>(USETHISONE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     name           release_date         meta_score     user_review   
- Length:5833        Length:5833        Min.   :22.00   Min.   :1.000  
- Class :character   Class :character   1st Qu.:66.00   1st Qu.:6.000  
- Mode  :character   Mode  :character   Median :74.00   Median :7.000  
-                                       Mean   :72.34   Mean   :6.835  
-                                       3rd Qu.:81.00   3rd Qu.:8.000  
+ Length:7822        Length:7822        Min.   :22.00   Min.   :1.000  
+ Class :character   Class :character   1st Qu.:64.00   1st Qu.:6.000  
+ Mode  :character   Mode  :character   Median :73.00   Median :7.000  
+                                       Mean   :71.34   Mean   :6.724  
+                                       3rd Qu.:80.00   3rd Qu.:8.000  
                                        Max.   :99.00   Max.   :9.000  
-                                                       NA's   :187    
-   main_story        main_plus_extras   completionist       all_styles    
- Min.   :  0.08333   Min.   :  0.4833   Min.   :   0.40   Min.   :  0.25  
- 1st Qu.:  4.00000   1st Qu.:  7.0000   1st Qu.:  10.00   1st Qu.:  5.50  
- Median :  8.00000   Median : 12.5000   Median :  18.50   Median :  9.50  
- Mean   : 11.99250   Mean   : 20.2219   Mean   :  38.02   Mean   : 16.46  
- 3rd Qu.: 14.50000   3rd Qu.: 24.5000   3rd Qu.:  41.50   3rd Qu.: 19.00  
- Max.   :248.00000   Max.   :285.0000   Max.   :1631.00   Max.   :296.00  
-                     NA's   :1203       NA's   :1540                      
+                                                       NA's   :408    
+   main_story       main_plus_extras   completionist       all_styles    
+ Min.   :  0.0833   Min.   :  0.4833   Min.   :   0.25   Min.   :  0.25  
+ 1st Qu.:  4.0000   1st Qu.:  7.0000   1st Qu.:  10.00   1st Qu.:  5.50  
+ Median :  8.0000   Median : 12.5000   Median :  18.50   Median : 10.00  
+ Mean   : 11.9925   Mean   : 20.2917   Mean   :  37.53   Mean   : 16.84  
+ 3rd Qu.: 14.5000   3rd Qu.: 24.5000   3rd Qu.:  40.50   3rd Qu.: 19.50  
+ Max.   :248.0000   Max.   :285.0000   Max.   :1631.00   Max.   :296.00  
+ NA's   :1989       NA's   :2962       NA's   :3331      NA's   :1623    
      type            platforms            genres          release_year      
- Length:5833        Length:5833        Length:5833        Length:5833       
+ Length:7822        Length:7822        Length:7822        Length:7822       
  Class :character   Class :character   Class :character   Class :character  
  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
                                                                             
@@ -342,7 +377,7 @@ Caused by warning:
                                                                             
                                                                             </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">summary</span>(realgames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">summary</span>(realgames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     name             main_story      main_plus_extras  completionist     
  Length:35922       Min.   :  0.017   Min.   :  0.017   Min.   :   0.017  
@@ -361,12 +396,12 @@ Caused by warning:
  Max.   :817.000                                                           
  NA's   :14810                                                             </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>metac <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">inner_join</span>(realgames) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">mutate</span>(<span class="at">gaga =</span> release_date) <span class="sc">|&gt;</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">separate</span>(gaga, <span class="fu">c</span>(<span class="st">"semester"</span>, <span class="st">"year"</span>), <span class="st">"(?&lt;=[,])"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">mutate</span>(<span class="at">release_year =</span> <span class="fu">str_replace</span>(year, <span class="st">" "</span>, <span class="st">""</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">mutate</span>(<span class="at">user_review =</span> <span class="fu">as.integer</span>(user_review)) <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>metac <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">inner_join</span>(realgames) <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">mutate</span>(<span class="at">gaga =</span> release_date) <span class="sc">|&gt;</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">separate</span>(gaga, <span class="fu">c</span>(<span class="st">"semester"</span>, <span class="st">"year"</span>), <span class="st">"(?&lt;=[,])"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a>  <span class="fu">mutate</span>(<span class="at">release_year =</span> <span class="fu">str_replace</span>(year, <span class="st">" "</span>, <span class="st">""</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a>  <span class="fu">mutate</span>(<span class="at">user_review =</span> <span class="fu">as.integer</span>(user_review)) <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(name)`</code></pre>
 </div>
@@ -417,18 +452,45 @@ Caused by warning:
                                                                             
                                                                             </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">typeof</span>(USETHISONE<span class="sc">$</span>main_story)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">typeof</span>(USETHISONE<span class="sc">$</span>main_story)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "double"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># i try to find some of the distributions here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># i try to find some of the distributions here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb22-4"><a href="#cb22-4"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>)) <span class="sc">+</span></span>
-<span id="cb22-5"><a href="#cb22-5"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Distribution of Games Lengths (post-join and wrangling)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>withcats <span class="ot">&lt;-</span> USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">drop_na</span>(main_story) <span class="sc">|&gt;</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a>  <span class="fu">mutate</span>(<span class="at">main_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb31-4"><a href="#cb31-4"></a>    (main_story <span class="sc">&lt;=</span><span class="dv">2</span>) <span class="sc">~</span> <span class="st">"nothing"</span>,</span>
+<span id="cb31-5"><a href="#cb31-5"></a>    (main_story <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span><span class="dv">2</span>) <span class="sc">~</span> <span class="st">"tiny"</span>,</span>
+<span id="cb31-6"><a href="#cb31-6"></a>    (main_story <span class="sc">&lt;=</span> <span class="dv">10</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span><span class="dv">7</span>) <span class="sc">~</span> <span class="st">"medium"</span>,</span>
+<span id="cb31-7"><a href="#cb31-7"></a>    (main_story <span class="sc">&lt;</span> <span class="dv">14</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">~</span> <span class="st">"long"</span>,</span>
+<span id="cb31-8"><a href="#cb31-8"></a>    (main_story <span class="sc">&lt;</span> <span class="dv">25</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;=</span><span class="dv">14</span>) <span class="sc">~</span> <span class="st">"huge"</span>,</span>
+<span id="cb31-9"><a href="#cb31-9"></a>    (main_story <span class="sc">&gt;=</span> <span class="dv">25</span>) <span class="sc">~</span> <span class="st">"epic"</span>,</span>
+<span id="cb31-10"><a href="#cb31-10"></a>    <span class="at">.default =</span> <span class="st">"short"</span></span>
+<span id="cb31-11"><a href="#cb31-11"></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb31-12"><a href="#cb31-12"></a>    <span class="fu">mutate</span>(<span class="at">main_cat =</span> <span class="fu">fct_relevel</span>(main_cat, <span class="fu">c</span>(<span class="st">"nothing"</span>, <span class="st">"tiny"</span>, <span class="st">"short"</span>, <span class="st">"medium"</span>, <span class="st">"long"</span>, <span class="st">"huge"</span>, <span class="st">"epic"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb31-13"><a href="#cb31-13"></a>  <span class="co">#creates time based categories, subjective and mostly based on strandard distribution quantiles</span></span>
+<span id="cb31-14"><a href="#cb31-14"></a><span class="fu">mutate</span>(<span class="at">meta_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb31-15"><a href="#cb31-15"></a>    (meta_score <span class="sc">&lt;=</span><span class="dv">40</span>) <span class="sc">~</span> <span class="st">"shovelware"</span>,</span>
+<span id="cb31-16"><a href="#cb31-16"></a>    (meta_score <span class="sc">&lt;=</span> <span class="dv">60</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span><span class="dv">40</span>) <span class="sc">~</span> <span class="st">"questionable"</span>,</span>
+<span id="cb31-17"><a href="#cb31-17"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">70</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span><span class="dv">60</span>) <span class="sc">~</span> <span class="st">"mixed"</span>,</span>
+<span id="cb31-18"><a href="#cb31-18"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">84</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span> <span class="dv">78</span>) <span class="sc">~</span> <span class="st">"great"</span>,</span>
+<span id="cb31-19"><a href="#cb31-19"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">90</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;=</span><span class="dv">84</span>) <span class="sc">~</span> <span class="st">"beloved"</span>,</span>
+<span id="cb31-20"><a href="#cb31-20"></a>    (meta_score <span class="sc">&gt;=</span> <span class="dv">90</span>) <span class="sc">~</span> <span class="st">"legendary"</span>,</span>
+<span id="cb31-21"><a href="#cb31-21"></a>    <span class="at">.default =</span> <span class="st">"good"</span></span>
+<span id="cb31-22"><a href="#cb31-22"></a>)) <span class="sc">|&gt;</span></span>
+<span id="cb31-23"><a href="#cb31-23"></a>    <span class="fu">mutate</span>(<span class="at">meta_cat =</span> <span class="fu">fct_relevel</span>(meta_cat, <span class="fu">c</span>(<span class="st">"shovelware"</span>, <span class="st">"questionable"</span>, <span class="st">"mixed"</span>, <span class="st">"good"</span>, <span class="st">"great"</span>, <span class="st">"beloved"</span>, <span class="st">"legendary"</span>)))</span>
+<span id="cb31-24"><a href="#cb31-24"></a><span class="co">#creates score based categories, mostly subjective</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Distribution of Games Lengths (post-join and wrangling)"</span>) <span class="sc">+</span></span>
+<span id="cb32-6"><a href="#cb32-6"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 116 rows containing non-finite outside the scale range
 (`stat_bin()`).</code></pre>
@@ -439,15 +501,16 @@ Caused by warning:
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>realgames <span class="sc">|&gt;</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb25-4"><a href="#cb25-4"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>)) <span class="sc">+</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Distribution of Games Lengths (pre-join)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>realgames <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Distribution of Games Lengths (pre-join)"</span>) <span class="sc">+</span></span>
+<span id="cb35-6"><a href="#cb35-6"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 18826 rows containing non-finite outside the scale range
 (`stat_bin()`).
@@ -456,13 +519,13 @@ Removed 2 rows containing missing values or values outside the scale range
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>realgames <span class="sc">|&gt;</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a> <span class="co"># filter(meta_score&lt;=70) </span></span>
-<span id="cb27-3"><a href="#cb27-3"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(main_story))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>realgames <span class="sc">|&gt;</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a> <span class="co"># filter(meta_score&lt;=70) </span></span>
+<span id="cb37-3"><a href="#cb37-3"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(main_story))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 35,922 × 8
    name     main_story main_plus_extras completionist all_styles type  platforms
@@ -480,136 +543,55 @@ Removed 2 rows containing missing values or values outside the scale range
 # ℹ 35,912 more rows
 # ℹ 1 more variable: genres &lt;chr&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a>  <span class="fu">filter</span>(completionist <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
-<span id="cb29-3"><a href="#cb29-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> completionist, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
-<span id="cb29-4"><a href="#cb29-4"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.6</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co">#checking what i removed in wrangling, and what we have for completionist</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>withcats <span class="ot">&lt;-</span> USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">mutate</span>(<span class="at">main_cat =</span> <span class="fu">case_when</span>(</span>
-<span id="cb31-3"><a href="#cb31-3"></a>    (main_story <span class="sc">&lt;=</span><span class="dv">2</span>) <span class="sc">~</span> <span class="st">"nothing"</span>,</span>
-<span id="cb31-4"><a href="#cb31-4"></a>    (main_story <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span><span class="dv">2</span>) <span class="sc">~</span> <span class="st">"tiny"</span>,</span>
-<span id="cb31-5"><a href="#cb31-5"></a>    (main_story <span class="sc">&lt;=</span> <span class="dv">10</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span><span class="dv">7</span>) <span class="sc">~</span> <span class="st">"medium"</span>,</span>
-<span id="cb31-6"><a href="#cb31-6"></a>    (main_story <span class="sc">&lt;</span> <span class="dv">14</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">~</span> <span class="st">"long"</span>,</span>
-<span id="cb31-7"><a href="#cb31-7"></a>    (main_story <span class="sc">&lt;</span> <span class="dv">25</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;=</span><span class="dv">14</span>) <span class="sc">~</span> <span class="st">"huge"</span>,</span>
-<span id="cb31-8"><a href="#cb31-8"></a>    (main_story <span class="sc">&gt;=</span> <span class="dv">25</span>) <span class="sc">~</span> <span class="st">"epic"</span>,</span>
-<span id="cb31-9"><a href="#cb31-9"></a>    <span class="at">.default =</span> <span class="st">"short"</span></span>
-<span id="cb31-10"><a href="#cb31-10"></a>  )) <span class="sc">|&gt;</span></span>
-<span id="cb31-11"><a href="#cb31-11"></a>    <span class="fu">mutate</span>(<span class="at">main_cat =</span> <span class="fu">fct_relevel</span>(main_cat, <span class="fu">c</span>(<span class="st">"nothing"</span>, <span class="st">"tiny"</span>, <span class="st">"short"</span>, <span class="st">"medium"</span>, <span class="st">"long"</span>, <span class="st">"huge"</span>, <span class="st">"epic"</span>))) <span class="sc">|&gt;</span></span>
-<span id="cb31-12"><a href="#cb31-12"></a>  <span class="co">#creates time based categories, subjective and mostly based on strandard distribution quantiles</span></span>
-<span id="cb31-13"><a href="#cb31-13"></a><span class="fu">mutate</span>(<span class="at">meta_cat =</span> <span class="fu">case_when</span>(</span>
-<span id="cb31-14"><a href="#cb31-14"></a>    (meta_score <span class="sc">&lt;=</span><span class="dv">40</span>) <span class="sc">~</span> <span class="st">"shovelware"</span>,</span>
-<span id="cb31-15"><a href="#cb31-15"></a>    (meta_score <span class="sc">&lt;=</span> <span class="dv">60</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span><span class="dv">40</span>) <span class="sc">~</span> <span class="st">"questionable"</span>,</span>
-<span id="cb31-16"><a href="#cb31-16"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">70</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span><span class="dv">60</span>) <span class="sc">~</span> <span class="st">"mixed"</span>,</span>
-<span id="cb31-17"><a href="#cb31-17"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">84</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span> <span class="dv">78</span>) <span class="sc">~</span> <span class="st">"great"</span>,</span>
-<span id="cb31-18"><a href="#cb31-18"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">90</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;=</span><span class="dv">84</span>) <span class="sc">~</span> <span class="st">"beloved"</span>,</span>
-<span id="cb31-19"><a href="#cb31-19"></a>    (meta_score <span class="sc">&gt;=</span> <span class="dv">90</span>) <span class="sc">~</span> <span class="st">"legendary"</span>,</span>
-<span id="cb31-20"><a href="#cb31-20"></a>    <span class="at">.default =</span> <span class="st">"good"</span></span>
-<span id="cb31-21"><a href="#cb31-21"></a>)) <span class="sc">|&gt;</span></span>
-<span id="cb31-22"><a href="#cb31-22"></a>    <span class="fu">mutate</span>(<span class="at">meta_cat =</span> <span class="fu">fct_relevel</span>(meta_cat, <span class="fu">c</span>(<span class="st">"shovelware"</span>, <span class="st">"questionable"</span>, <span class="st">"mixed"</span>, <span class="st">"good"</span>, <span class="st">"great"</span>, <span class="st">"beloved"</span>, <span class="st">"legendary"</span>)))</span>
-<span id="cb31-23"><a href="#cb31-23"></a><span class="co">#creates score based categories, mostly subjective</span></span>
-<span id="cb31-24"><a href="#cb31-24"></a></span>
-<span id="cb31-25"><a href="#cb31-25"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb31-26"><a href="#cb31-26"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> meta_score, <span class="at">x=</span>main_cat)) <span class="sc">+</span></span>
-<span id="cb31-27"><a href="#cb31-27"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb31-28"><a href="#cb31-28"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Main Story Length"</span>, <span class="at">title=</span><span class="st">"Score Distribution by Length Categories"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> meta_score, <span class="at">x=</span>main_cat)) <span class="sc">+</span></span>
-<span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">geom_violin</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> meta_score)) <span class="sc">+</span></span>
-<span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">3</span>,<span class="at">color=</span><span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb33-4"><a href="#cb33-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> main_cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">filter</span>(completionist <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
+<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> completionist, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb39-4"><a href="#cb39-4"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.6</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> meta_score)) <span class="sc">+</span></span>
-<span id="cb34-3"><a href="#cb34-3"></a>  <span class="fu">geom_density</span>(<span class="at">binwidth =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb34-4"><a href="#cb34-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> main_cat) <span class="sc">+</span></span>
-<span id="cb34-5"><a href="#cb34-5"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Critic Score"</span>, <span class="at">title=</span><span class="st">"Score Distribution by Length Categories"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_density(binwidth = 3): Ignoring unknown parameters: `binwidth`</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-4-4.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co">#distribution graphs based on length categories vs scores</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co">#checking what i removed in wrangling, and what we have for completionist</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a><span class="co">#  filter(main_story&lt;=75) |&gt;</span></span>
-<span id="cb37-3"><a href="#cb37-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> main_story, <span class="at">x=</span>meta_cat)) <span class="sc">+</span></span>
-<span id="cb37-4"><a href="#cb37-4"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb37-5"><a href="#cb37-5"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Critic Evaluation"</span>, <span class="at">y=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Length Distribution by Score Categories"</span>) <span class="sc">+</span></span>
-<span id="cb37-6"><a href="#cb37-6"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">75</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 31 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> meta_score, <span class="at">x=</span>main_cat)) <span class="sc">+</span></span>
+<span id="cb41-3"><a href="#cb41-3"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb41-4"><a href="#cb41-4"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Main Story Length"</span>, <span class="at">title=</span><span class="st">"Score Distribution by Length Categories"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">filter</span>(main_story<span class="sc">&lt;=</span><span class="dv">17</span>) <span class="sc">|&gt;</span></span>
-<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> main_story, <span class="at">x=</span>meta_cat)) <span class="sc">+</span></span>
-<span id="cb39-4"><a href="#cb39-4"></a>  <span class="fu">geom_violin</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> meta_score, <span class="at">x=</span>main_cat)) <span class="sc">+</span></span>
+<span id="cb42-3"><a href="#cb42-3"></a>  <span class="fu">geom_violin</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">filter</span>(main_story<span class="sc">&lt;=</span><span class="dv">25</span>) <span class="sc">|&gt;</span></span>
-<span id="cb40-3"><a href="#cb40-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
-<span id="cb40-4"><a href="#cb40-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">color=</span><span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb40-5"><a href="#cb40-5"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> meta_cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">3</span>,<span class="at">color=</span><span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> main_cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a><span class="co">#  filter(main_story&lt;=25) |&gt;</span></span>
-<span id="cb41-3"><a href="#cb41-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
-<span id="cb41-4"><a href="#cb41-4"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"gold"</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb41-5"><a href="#cb41-5"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> meta_cat) <span class="sc">+</span></span>
-<span id="cb41-6"><a href="#cb41-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">25</span>)) <span class="sc">+</span></span>
-<span id="cb41-7"><a href="#cb41-7"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Length Distribution by Score Categories"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a>  <span class="fu">geom_density</span>(<span class="at">binwidth =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> main_cat) <span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Critic Score"</span>, <span class="at">title=</span><span class="st">"Score Distribution by Length Categories"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 672 rows containing non-finite outside the scale range
-(`stat_density()`).</code></pre>
+<pre><code>Warning in geom_density(binwidth = 3): Ignoring unknown parameters: `binwidth`</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -617,74 +599,129 @@ Removed 2 rows containing missing values or values outside the scale range
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co">#distribution graphs based on length vs score categories</span></span>
-<span id="cb43-2"><a href="#cb43-2"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb43-3"><a href="#cb43-3"></a>  <span class="fu">filter</span>(completionist<span class="sc">&gt;=</span><span class="dv">40</span>) <span class="sc">|&gt;</span></span>
-<span id="cb43-4"><a href="#cb43-4"></a>  <span class="fu">filter</span>(completionist<span class="sc">&lt;=</span><span class="dv">200</span>) <span class="sc">|&gt;</span></span>
-<span id="cb43-5"><a href="#cb43-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> completionist)) <span class="sc">+</span></span>
-<span id="cb43-6"><a href="#cb43-6"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
-<span id="cb43-7"><a href="#cb43-7"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> meta_cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-5-5.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co">#i check out how it compares for "all content completionist" times, within a certain range. there is a big range and so all this data has to be suited into a certain range to make any sense</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co">#distribution graphs based on length categories vs scores</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb45-2"><a href="#cb45-2"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb45-3"><a href="#cb45-3"></a>  <span class="fu">filter</span>(main_story <span class="sc">&lt;</span> <span class="dv">25</span>) <span class="sc">|&gt;</span></span>
-<span id="cb45-4"><a href="#cb45-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
-<span id="cb45-5"><a href="#cb45-5"></a>  <span class="fu">geom_density_2d_filled</span>(<span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">bins=</span><span class="dv">10</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> main_story, <span class="at">x=</span>meta_cat)) <span class="sc">+</span></span>
+<span id="cb47-3"><a href="#cb47-3"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb47-4"><a href="#cb47-4"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Critic Evaluation"</span>, <span class="at">y=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Length Distribution by Score Categories"</span>) <span class="sc">+</span></span>
+<span id="cb47-5"><a href="#cb47-5"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">75</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 31 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co">#first, we try a density plot, but thats like, frequency which means that the score groups overpower everything</span></span>
-<span id="cb46-2"><a href="#cb46-2"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb46-3"><a href="#cb46-3"></a>  <span class="co">#filter(meta_score &lt; 60) |&gt;</span></span>
-<span id="cb46-4"><a href="#cb46-4"></a>  <span class="fu">filter</span>(main_story <span class="sc">&lt;</span> <span class="dv">50</span>) <span class="sc">|&gt;</span></span>
-<span id="cb46-5"><a href="#cb46-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(main_story, meta_score )) <span class="sc">+</span></span>
-<span id="cb46-6"><a href="#cb46-6"></a>  <span class="co">#geom_raster(aes(fill=density))</span></span>
-<span id="cb46-7"><a href="#cb46-7"></a>  <span class="fu">geom_bin_2d</span>( <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb46-8"><a href="#cb46-8"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">"YlGnBu"</span>, <span class="at">name =</span> <span class="st">"# Games"</span>) <span class="sc">+</span></span>
-<span id="cb46-9"><a href="#cb46-9"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Score vs. Main Story Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>  <span class="fu">filter</span>(main_story<span class="sc">&lt;=</span><span class="dv">17</span>) <span class="sc">|&gt;</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> main_story, <span class="at">x=</span>meta_cat)) <span class="sc">+</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a>  <span class="fu">geom_violin</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co">#then we learn how to use geom_bin_2d with count which is really great. I tried this weird raster thing but it didn't really work</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb47-3"><a href="#cb47-3"></a>  <span class="fu">filter</span>(completionist <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
-<span id="cb47-4"><a href="#cb47-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(completionist, meta_score )) <span class="sc">+</span></span>
-<span id="cb47-5"><a href="#cb47-5"></a>  <span class="fu">geom_bin_2d</span>( <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb47-6"><a href="#cb47-6"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">"YlOrRd"</span>, <span class="at">name =</span> <span class="st">"# Games"</span>) <span class="sc">+</span></span>
-<span id="cb47-7"><a href="#cb47-7"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"100% Completion Time (Hours)"</span>, <span class="at">title=</span><span class="st">"Score vs. 100% Time"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>  <span class="fu">filter</span>(main_story<span class="sc">&lt;=</span><span class="dv">25</span>) <span class="sc">|&gt;</span></span>
+<span id="cb50-3"><a href="#cb50-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
+<span id="cb50-4"><a href="#cb50-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">color=</span><span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb50-5"><a href="#cb50-5"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> meta_cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-6-3.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">filter</span>(main_plus_extras <span class="sc">&lt;</span> <span class="dv">75</span>) <span class="sc">|&gt;</span></span>
-<span id="cb48-3"><a href="#cb48-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(main_plus_extras, meta_score )) <span class="sc">+</span></span>
-<span id="cb48-4"><a href="#cb48-4"></a>  <span class="fu">geom_bin_2d</span>( <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb48-5"><a href="#cb48-5"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">"YlOrRd"</span>, <span class="at">name =</span> <span class="st">"# Games"</span>) <span class="sc">+</span></span>
-<span id="cb48-6"><a href="#cb48-6"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Story and Side Content Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Score vs. Story + Extras Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
+<span id="cb51-3"><a href="#cb51-3"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"gold"</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb51-4"><a href="#cb51-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> meta_cat) <span class="sc">+</span></span>
+<span id="cb51-5"><a href="#cb51-5"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">25</span>)) <span class="sc">+</span></span>
+<span id="cb51-6"><a href="#cb51-6"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Length Distribution by Score Categories"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 672 rows containing non-finite outside the scale range
+(`stat_density()`).</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-6-4.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co">#I then preceded to check it out with completion and "extra content" times, trying to fit the scale in such a way that the boxes wouldn't be stretched but would divide in weird places that would make the data look "speckled"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co">#distribution graphs based on length vs score categories</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb53-3"><a href="#cb53-3"></a>  <span class="fu">filter</span>(completionist<span class="sc">&gt;=</span><span class="dv">40</span>) <span class="sc">|&gt;</span></span>
+<span id="cb53-4"><a href="#cb53-4"></a>  <span class="fu">filter</span>(completionist<span class="sc">&lt;=</span><span class="dv">200</span>) <span class="sc">|&gt;</span></span>
+<span id="cb53-5"><a href="#cb53-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> completionist)) <span class="sc">+</span></span>
+<span id="cb53-6"><a href="#cb53-6"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb53-7"><a href="#cb53-7"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> meta_cat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-6-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co">#i check out how it compares for "all content completionist" times, within a certain range. there is a big range and so all this data has to be suited into a certain range to make any sense</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb55-2"><a href="#cb55-2"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb55-3"><a href="#cb55-3"></a>  <span class="fu">filter</span>(main_story <span class="sc">&lt;</span> <span class="dv">25</span>) <span class="sc">|&gt;</span></span>
+<span id="cb55-4"><a href="#cb55-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb55-5"><a href="#cb55-5"></a>  <span class="fu">geom_density_2d_filled</span>(<span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">bins=</span><span class="dv">10</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co">#first, we try a density plot, but thats like, frequency which means that the score groups overpower everything</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a>  <span class="co">#filter(meta_score &lt; 60) |&gt;</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a>  <span class="fu">filter</span>(main_story <span class="sc">&lt;</span> <span class="dv">50</span>) <span class="sc">|&gt;</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(main_story, meta_score )) <span class="sc">+</span></span>
+<span id="cb56-6"><a href="#cb56-6"></a>  <span class="co">#geom_raster(aes(fill=density))</span></span>
+<span id="cb56-7"><a href="#cb56-7"></a>  <span class="fu">geom_bin_2d</span>( <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb56-8"><a href="#cb56-8"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">"YlGnBu"</span>, <span class="at">name =</span> <span class="st">"# Games"</span>) <span class="sc">+</span></span>
+<span id="cb56-9"><a href="#cb56-9"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Score vs. Main Story Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co">#then we learn how to use geom_bin_2d with count which is really great. I tried this weird raster thing but it didn't really work</span></span>
+<span id="cb57-2"><a href="#cb57-2"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb57-3"><a href="#cb57-3"></a>  <span class="fu">filter</span>(completionist <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
+<span id="cb57-4"><a href="#cb57-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(completionist, meta_score )) <span class="sc">+</span></span>
+<span id="cb57-5"><a href="#cb57-5"></a>  <span class="fu">geom_bin_2d</span>( <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb57-6"><a href="#cb57-6"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">"YlOrRd"</span>, <span class="at">name =</span> <span class="st">"# Games"</span>) <span class="sc">+</span></span>
+<span id="cb57-7"><a href="#cb57-7"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"100% Completion Time (Hours)"</span>, <span class="at">title=</span><span class="st">"Score vs. 100% Time"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a>  <span class="fu">filter</span>(main_plus_extras <span class="sc">&lt;</span> <span class="dv">75</span>) <span class="sc">|&gt;</span></span>
+<span id="cb58-3"><a href="#cb58-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(main_plus_extras, meta_score )) <span class="sc">+</span></span>
+<span id="cb58-4"><a href="#cb58-4"></a>  <span class="fu">geom_bin_2d</span>( <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb58-5"><a href="#cb58-5"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">"YlOrRd"</span>, <span class="at">name =</span> <span class="st">"# Games"</span>) <span class="sc">+</span></span>
+<span id="cb58-6"><a href="#cb58-6"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Story and Side Content Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Score vs. Story + Extras Length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="merce-l_files/figure-html/unnamed-chunk-7-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co">#I then preceded to check it out with completion and "extra content" times, trying to fit the scale in such a way that the boxes wouldn't be stretched but would divide in weird places that would make the data look "speckled"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <pre><code>
 
@@ -759,147 +796,147 @@ palala &lt;- metac |&gt;
   mutate(user_review = as.integer(user_review)) |&gt;
   select(-summary, -platform, -semester, -year) 
 
-USETHISONE &lt;- palala[!duplicated(palala$name), ] |&gt;
-  drop_na(main_story)
-#same as elina's code but i use inner_join and drop_na to exclude NAs so that my categories work properly</code></pre>
+USETHISONE &lt;- palala[!duplicated(palala$name), ]
+#same as elina's code but i use inner_join and drop_na (MOVED TO LATER) to exclude NAs so that my categories work properly</code></pre>
 <p>quarto-executable-code-5450563D</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">summary</span>(USETHISONE)</span>
-<span id="cb51-2"><a href="#cb51-2"></a><span class="fu">summary</span>(realgames)</span>
-<span id="cb51-3"><a href="#cb51-3"></a>metac <span class="sc">|&gt;</span></span>
-<span id="cb51-4"><a href="#cb51-4"></a>  <span class="fu">inner_join</span>(realgames) <span class="sc">|&gt;</span></span>
-<span id="cb51-5"><a href="#cb51-5"></a>  <span class="fu">mutate</span>(<span class="at">gaga =</span> release_date) <span class="sc">|&gt;</span></span>
-<span id="cb51-6"><a href="#cb51-6"></a>  <span class="fu">separate</span>(gaga, <span class="fu">c</span>(<span class="st">"semester"</span>, <span class="st">"year"</span>), <span class="st">"(?&lt;=[,])"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb51-7"><a href="#cb51-7"></a>  <span class="fu">mutate</span>(<span class="at">release_year =</span> <span class="fu">str_replace</span>(year, <span class="st">" "</span>, <span class="st">""</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb51-8"><a href="#cb51-8"></a>  <span class="fu">mutate</span>(<span class="at">user_review =</span> <span class="fu">as.integer</span>(user_review)) <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span>
-<span id="cb51-9"><a href="#cb51-9"></a><span class="fu">typeof</span>(USETHISONE<span class="sc">$</span>main_story)</span>
-<span id="cb51-10"><a href="#cb51-10"></a><span class="co"># i try to find some of the distributions here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="fu">summary</span>(USETHISONE)</span>
+<span id="cb61-2"><a href="#cb61-2"></a><span class="fu">summary</span>(realgames)</span>
+<span id="cb61-3"><a href="#cb61-3"></a>metac <span class="sc">|&gt;</span></span>
+<span id="cb61-4"><a href="#cb61-4"></a>  <span class="fu">inner_join</span>(realgames) <span class="sc">|&gt;</span></span>
+<span id="cb61-5"><a href="#cb61-5"></a>  <span class="fu">mutate</span>(<span class="at">gaga =</span> release_date) <span class="sc">|&gt;</span></span>
+<span id="cb61-6"><a href="#cb61-6"></a>  <span class="fu">separate</span>(gaga, <span class="fu">c</span>(<span class="st">"semester"</span>, <span class="st">"year"</span>), <span class="st">"(?&lt;=[,])"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb61-7"><a href="#cb61-7"></a>  <span class="fu">mutate</span>(<span class="at">release_year =</span> <span class="fu">str_replace</span>(year, <span class="st">" "</span>, <span class="st">""</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb61-8"><a href="#cb61-8"></a>  <span class="fu">mutate</span>(<span class="at">user_review =</span> <span class="fu">as.integer</span>(user_review)) <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span>
+<span id="cb61-9"><a href="#cb61-9"></a><span class="fu">typeof</span>(USETHISONE<span class="sc">$</span>main_story)</span>
+<span id="cb61-10"><a href="#cb61-10"></a><span class="co"># i try to find some of the distributions here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>quarto-executable-code-5450563D</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
-<span id="cb52-3"><a href="#cb52-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb52-4"><a href="#cb52-4"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>)) <span class="sc">+</span></span>
-<span id="cb52-5"><a href="#cb52-5"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Distribution of Games Lengths (post-join and wrangling)"</span>)</span>
-<span id="cb52-6"><a href="#cb52-6"></a></span>
-<span id="cb52-7"><a href="#cb52-7"></a>realgames <span class="sc">|&gt;</span></span>
-<span id="cb52-8"><a href="#cb52-8"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
-<span id="cb52-9"><a href="#cb52-9"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb52-10"><a href="#cb52-10"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>)) <span class="sc">+</span></span>
-<span id="cb52-11"><a href="#cb52-11"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Distribution of Games Lengths (pre-join)"</span>)</span>
-<span id="cb52-12"><a href="#cb52-12"></a>realgames <span class="sc">|&gt;</span></span>
-<span id="cb52-13"><a href="#cb52-13"></a> <span class="co"># filter(meta_score&lt;=70) </span></span>
-<span id="cb52-14"><a href="#cb52-14"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(main_story))</span>
-<span id="cb52-15"><a href="#cb52-15"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb52-16"><a href="#cb52-16"></a>  <span class="fu">filter</span>(completionist <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
-<span id="cb52-17"><a href="#cb52-17"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> completionist, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
-<span id="cb52-18"><a href="#cb52-18"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.6</span>) </span>
-<span id="cb52-19"><a href="#cb52-19"></a><span class="co">#checking what i removed in wrangling, and what we have for completionist</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>withcats <span class="ot">&lt;-</span> USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb62-2"><a href="#cb62-2"></a>  <span class="fu">drop_na</span>(main_story) <span class="sc">|&gt;</span></span>
+<span id="cb62-3"><a href="#cb62-3"></a>  <span class="fu">mutate</span>(<span class="at">main_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb62-4"><a href="#cb62-4"></a>    (main_story <span class="sc">&lt;=</span><span class="dv">2</span>) <span class="sc">~</span> <span class="st">"nothing"</span>,</span>
+<span id="cb62-5"><a href="#cb62-5"></a>    (main_story <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span><span class="dv">2</span>) <span class="sc">~</span> <span class="st">"tiny"</span>,</span>
+<span id="cb62-6"><a href="#cb62-6"></a>    (main_story <span class="sc">&lt;=</span> <span class="dv">10</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span><span class="dv">7</span>) <span class="sc">~</span> <span class="st">"medium"</span>,</span>
+<span id="cb62-7"><a href="#cb62-7"></a>    (main_story <span class="sc">&lt;</span> <span class="dv">14</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">~</span> <span class="st">"long"</span>,</span>
+<span id="cb62-8"><a href="#cb62-8"></a>    (main_story <span class="sc">&lt;</span> <span class="dv">25</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;=</span><span class="dv">14</span>) <span class="sc">~</span> <span class="st">"huge"</span>,</span>
+<span id="cb62-9"><a href="#cb62-9"></a>    (main_story <span class="sc">&gt;=</span> <span class="dv">25</span>) <span class="sc">~</span> <span class="st">"epic"</span>,</span>
+<span id="cb62-10"><a href="#cb62-10"></a>    <span class="at">.default =</span> <span class="st">"short"</span></span>
+<span id="cb62-11"><a href="#cb62-11"></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb62-12"><a href="#cb62-12"></a>    <span class="fu">mutate</span>(<span class="at">main_cat =</span> <span class="fu">fct_relevel</span>(main_cat, <span class="fu">c</span>(<span class="st">"nothing"</span>, <span class="st">"tiny"</span>, <span class="st">"short"</span>, <span class="st">"medium"</span>, <span class="st">"long"</span>, <span class="st">"huge"</span>, <span class="st">"epic"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb62-13"><a href="#cb62-13"></a>  <span class="co">#creates time based categories, subjective and mostly based on strandard distribution quantiles</span></span>
+<span id="cb62-14"><a href="#cb62-14"></a><span class="fu">mutate</span>(<span class="at">meta_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb62-15"><a href="#cb62-15"></a>    (meta_score <span class="sc">&lt;=</span><span class="dv">40</span>) <span class="sc">~</span> <span class="st">"shovelware"</span>,</span>
+<span id="cb62-16"><a href="#cb62-16"></a>    (meta_score <span class="sc">&lt;=</span> <span class="dv">60</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span><span class="dv">40</span>) <span class="sc">~</span> <span class="st">"questionable"</span>,</span>
+<span id="cb62-17"><a href="#cb62-17"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">70</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span><span class="dv">60</span>) <span class="sc">~</span> <span class="st">"mixed"</span>,</span>
+<span id="cb62-18"><a href="#cb62-18"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">84</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span> <span class="dv">78</span>) <span class="sc">~</span> <span class="st">"great"</span>,</span>
+<span id="cb62-19"><a href="#cb62-19"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">90</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;=</span><span class="dv">84</span>) <span class="sc">~</span> <span class="st">"beloved"</span>,</span>
+<span id="cb62-20"><a href="#cb62-20"></a>    (meta_score <span class="sc">&gt;=</span> <span class="dv">90</span>) <span class="sc">~</span> <span class="st">"legendary"</span>,</span>
+<span id="cb62-21"><a href="#cb62-21"></a>    <span class="at">.default =</span> <span class="st">"good"</span></span>
+<span id="cb62-22"><a href="#cb62-22"></a>)) <span class="sc">|&gt;</span></span>
+<span id="cb62-23"><a href="#cb62-23"></a>    <span class="fu">mutate</span>(<span class="at">meta_cat =</span> <span class="fu">fct_relevel</span>(meta_cat, <span class="fu">c</span>(<span class="st">"shovelware"</span>, <span class="st">"questionable"</span>, <span class="st">"mixed"</span>, <span class="st">"good"</span>, <span class="st">"great"</span>, <span class="st">"beloved"</span>, <span class="st">"legendary"</span>)))</span>
+<span id="cb62-24"><a href="#cb62-24"></a><span class="co">#creates score based categories, mostly subjective</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>quarto-executable-code-5450563D</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>withcats <span class="ot">&lt;-</span> USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">mutate</span>(<span class="at">main_cat =</span> <span class="fu">case_when</span>(</span>
-<span id="cb53-3"><a href="#cb53-3"></a>    (main_story <span class="sc">&lt;=</span><span class="dv">2</span>) <span class="sc">~</span> <span class="st">"nothing"</span>,</span>
-<span id="cb53-4"><a href="#cb53-4"></a>    (main_story <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span><span class="dv">2</span>) <span class="sc">~</span> <span class="st">"tiny"</span>,</span>
-<span id="cb53-5"><a href="#cb53-5"></a>    (main_story <span class="sc">&lt;=</span> <span class="dv">10</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span><span class="dv">7</span>) <span class="sc">~</span> <span class="st">"medium"</span>,</span>
-<span id="cb53-6"><a href="#cb53-6"></a>    (main_story <span class="sc">&lt;</span> <span class="dv">14</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">~</span> <span class="st">"long"</span>,</span>
-<span id="cb53-7"><a href="#cb53-7"></a>    (main_story <span class="sc">&lt;</span> <span class="dv">25</span> <span class="sc">&amp;</span> main_story <span class="sc">&gt;=</span><span class="dv">14</span>) <span class="sc">~</span> <span class="st">"huge"</span>,</span>
-<span id="cb53-8"><a href="#cb53-8"></a>    (main_story <span class="sc">&gt;=</span> <span class="dv">25</span>) <span class="sc">~</span> <span class="st">"epic"</span>,</span>
-<span id="cb53-9"><a href="#cb53-9"></a>    <span class="at">.default =</span> <span class="st">"short"</span></span>
-<span id="cb53-10"><a href="#cb53-10"></a>  )) <span class="sc">|&gt;</span></span>
-<span id="cb53-11"><a href="#cb53-11"></a>    <span class="fu">mutate</span>(<span class="at">main_cat =</span> <span class="fu">fct_relevel</span>(main_cat, <span class="fu">c</span>(<span class="st">"nothing"</span>, <span class="st">"tiny"</span>, <span class="st">"short"</span>, <span class="st">"medium"</span>, <span class="st">"long"</span>, <span class="st">"huge"</span>, <span class="st">"epic"</span>))) <span class="sc">|&gt;</span></span>
-<span id="cb53-12"><a href="#cb53-12"></a>  <span class="co">#creates time based categories, subjective and mostly based on strandard distribution quantiles</span></span>
-<span id="cb53-13"><a href="#cb53-13"></a><span class="fu">mutate</span>(<span class="at">meta_cat =</span> <span class="fu">case_when</span>(</span>
-<span id="cb53-14"><a href="#cb53-14"></a>    (meta_score <span class="sc">&lt;=</span><span class="dv">40</span>) <span class="sc">~</span> <span class="st">"shovelware"</span>,</span>
-<span id="cb53-15"><a href="#cb53-15"></a>    (meta_score <span class="sc">&lt;=</span> <span class="dv">60</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span><span class="dv">40</span>) <span class="sc">~</span> <span class="st">"questionable"</span>,</span>
-<span id="cb53-16"><a href="#cb53-16"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">70</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span><span class="dv">60</span>) <span class="sc">~</span> <span class="st">"mixed"</span>,</span>
-<span id="cb53-17"><a href="#cb53-17"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">84</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;</span> <span class="dv">78</span>) <span class="sc">~</span> <span class="st">"great"</span>,</span>
-<span id="cb53-18"><a href="#cb53-18"></a>    (meta_score <span class="sc">&lt;</span> <span class="dv">90</span> <span class="sc">&amp;</span> meta_score <span class="sc">&gt;=</span><span class="dv">84</span>) <span class="sc">~</span> <span class="st">"beloved"</span>,</span>
-<span id="cb53-19"><a href="#cb53-19"></a>    (meta_score <span class="sc">&gt;=</span> <span class="dv">90</span>) <span class="sc">~</span> <span class="st">"legendary"</span>,</span>
-<span id="cb53-20"><a href="#cb53-20"></a>    <span class="at">.default =</span> <span class="st">"good"</span></span>
-<span id="cb53-21"><a href="#cb53-21"></a>)) <span class="sc">|&gt;</span></span>
-<span id="cb53-22"><a href="#cb53-22"></a>    <span class="fu">mutate</span>(<span class="at">meta_cat =</span> <span class="fu">fct_relevel</span>(meta_cat, <span class="fu">c</span>(<span class="st">"shovelware"</span>, <span class="st">"questionable"</span>, <span class="st">"mixed"</span>, <span class="st">"good"</span>, <span class="st">"great"</span>, <span class="st">"beloved"</span>, <span class="st">"legendary"</span>)))</span>
-<span id="cb53-23"><a href="#cb53-23"></a><span class="co">#creates score based categories, mostly subjective</span></span>
-<span id="cb53-24"><a href="#cb53-24"></a></span>
-<span id="cb53-25"><a href="#cb53-25"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb53-26"><a href="#cb53-26"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> meta_score, <span class="at">x=</span>main_cat)) <span class="sc">+</span></span>
-<span id="cb53-27"><a href="#cb53-27"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb53-28"><a href="#cb53-28"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Main Story Length"</span>, <span class="at">title=</span><span class="st">"Score Distribution by Length Categories"</span>)</span>
-<span id="cb53-29"><a href="#cb53-29"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb53-30"><a href="#cb53-30"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> meta_score, <span class="at">x=</span>main_cat)) <span class="sc">+</span></span>
-<span id="cb53-31"><a href="#cb53-31"></a>  <span class="fu">geom_violin</span>() </span>
-<span id="cb53-32"><a href="#cb53-32"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb53-33"><a href="#cb53-33"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> meta_score)) <span class="sc">+</span></span>
-<span id="cb53-34"><a href="#cb53-34"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">3</span>,<span class="at">color=</span><span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb53-35"><a href="#cb53-35"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> main_cat)</span>
-<span id="cb53-36"><a href="#cb53-36"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb53-37"><a href="#cb53-37"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> meta_score)) <span class="sc">+</span></span>
-<span id="cb53-38"><a href="#cb53-38"></a>  <span class="fu">geom_density</span>(<span class="at">binwidth =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb53-39"><a href="#cb53-39"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> main_cat) <span class="sc">+</span></span>
-<span id="cb53-40"><a href="#cb53-40"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Critic Score"</span>, <span class="at">title=</span><span class="st">"Score Distribution by Length Categories"</span>)</span>
-<span id="cb53-41"><a href="#cb53-41"></a><span class="co">#distribution graphs based on length categories vs scores</span></span>
-<span id="cb53-42"><a href="#cb53-42"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb63-2"><a href="#cb63-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
+<span id="cb63-3"><a href="#cb63-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb63-4"><a href="#cb63-4"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb63-5"><a href="#cb63-5"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Distribution of Games Lengths (post-join and wrangling)"</span>) <span class="sc">+</span></span>
+<span id="cb63-6"><a href="#cb63-6"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb63-7"><a href="#cb63-7"></a></span>
+<span id="cb63-8"><a href="#cb63-8"></a>realgames <span class="sc">|&gt;</span></span>
+<span id="cb63-9"><a href="#cb63-9"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
+<span id="cb63-10"><a href="#cb63-10"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb63-11"><a href="#cb63-11"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb63-12"><a href="#cb63-12"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Distribution of Games Lengths (pre-join)"</span>) <span class="sc">+</span></span>
+<span id="cb63-13"><a href="#cb63-13"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb63-14"><a href="#cb63-14"></a>realgames <span class="sc">|&gt;</span></span>
+<span id="cb63-15"><a href="#cb63-15"></a> <span class="co"># filter(meta_score&lt;=70) </span></span>
+<span id="cb63-16"><a href="#cb63-16"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(main_story))</span>
+<span id="cb63-17"><a href="#cb63-17"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb63-18"><a href="#cb63-18"></a>  <span class="fu">filter</span>(completionist <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
+<span id="cb63-19"><a href="#cb63-19"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> completionist, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb63-20"><a href="#cb63-20"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.6</span>) </span>
+<span id="cb63-21"><a href="#cb63-21"></a><span class="co">#checking what i removed in wrangling, and what we have for completionist</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>quarto-executable-code-5450563D</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb54-2"><a href="#cb54-2"></a><span class="co">#  filter(main_story&lt;=75) |&gt;</span></span>
-<span id="cb54-3"><a href="#cb54-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> main_story, <span class="at">x=</span>meta_cat)) <span class="sc">+</span></span>
-<span id="cb54-4"><a href="#cb54-4"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb54-5"><a href="#cb54-5"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Critic Evaluation"</span>, <span class="at">y=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Length Distribution by Score Categories"</span>) <span class="sc">+</span></span>
-<span id="cb54-6"><a href="#cb54-6"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">75</span>))</span>
-<span id="cb54-7"><a href="#cb54-7"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb54-8"><a href="#cb54-8"></a>  <span class="fu">filter</span>(main_story<span class="sc">&lt;=</span><span class="dv">17</span>) <span class="sc">|&gt;</span></span>
-<span id="cb54-9"><a href="#cb54-9"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> main_story, <span class="at">x=</span>meta_cat)) <span class="sc">+</span></span>
-<span id="cb54-10"><a href="#cb54-10"></a>  <span class="fu">geom_violin</span>() </span>
-<span id="cb54-11"><a href="#cb54-11"></a></span>
-<span id="cb54-12"><a href="#cb54-12"></a></span>
-<span id="cb54-13"><a href="#cb54-13"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb54-14"><a href="#cb54-14"></a>  <span class="fu">filter</span>(main_story<span class="sc">&lt;=</span><span class="dv">25</span>) <span class="sc">|&gt;</span></span>
-<span id="cb54-15"><a href="#cb54-15"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
-<span id="cb54-16"><a href="#cb54-16"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">color=</span><span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb54-17"><a href="#cb54-17"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> meta_cat)</span>
-<span id="cb54-18"><a href="#cb54-18"></a></span>
-<span id="cb54-19"><a href="#cb54-19"></a></span>
-<span id="cb54-20"><a href="#cb54-20"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb54-21"><a href="#cb54-21"></a><span class="co">#  filter(main_story&lt;=25) |&gt;</span></span>
-<span id="cb54-22"><a href="#cb54-22"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
-<span id="cb54-23"><a href="#cb54-23"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"gold"</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb54-24"><a href="#cb54-24"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> meta_cat) <span class="sc">+</span></span>
-<span id="cb54-25"><a href="#cb54-25"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">25</span>)) <span class="sc">+</span></span>
-<span id="cb54-26"><a href="#cb54-26"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Length Distribution by Score Categories"</span>)</span>
-<span id="cb54-27"><a href="#cb54-27"></a><span class="co">#distribution graphs based on length vs score categories</span></span>
-<span id="cb54-28"><a href="#cb54-28"></a>withcats <span class="sc">|&gt;</span></span>
-<span id="cb54-29"><a href="#cb54-29"></a>  <span class="fu">filter</span>(completionist<span class="sc">&gt;=</span><span class="dv">40</span>) <span class="sc">|&gt;</span></span>
-<span id="cb54-30"><a href="#cb54-30"></a>  <span class="fu">filter</span>(completionist<span class="sc">&lt;=</span><span class="dv">200</span>) <span class="sc">|&gt;</span></span>
-<span id="cb54-31"><a href="#cb54-31"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> completionist)) <span class="sc">+</span></span>
-<span id="cb54-32"><a href="#cb54-32"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
-<span id="cb54-33"><a href="#cb54-33"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> meta_cat)</span>
-<span id="cb54-34"><a href="#cb54-34"></a><span class="co">#i check out how it compares for "all content completionist" times, within a certain range. there is a big range and so all this data has to be suited into a certain range to make any sense</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb64-2"><a href="#cb64-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> meta_score, <span class="at">x=</span>main_cat)) <span class="sc">+</span></span>
+<span id="cb64-3"><a href="#cb64-3"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb64-4"><a href="#cb64-4"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Main Story Length"</span>, <span class="at">title=</span><span class="st">"Score Distribution by Length Categories"</span>)</span>
+<span id="cb64-5"><a href="#cb64-5"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb64-6"><a href="#cb64-6"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> meta_score, <span class="at">x=</span>main_cat)) <span class="sc">+</span></span>
+<span id="cb64-7"><a href="#cb64-7"></a>  <span class="fu">geom_violin</span>() </span>
+<span id="cb64-8"><a href="#cb64-8"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb64-9"><a href="#cb64-9"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb64-10"><a href="#cb64-10"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">3</span>,<span class="at">color=</span><span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb64-11"><a href="#cb64-11"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> main_cat)</span>
+<span id="cb64-12"><a href="#cb64-12"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb64-13"><a href="#cb64-13"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb64-14"><a href="#cb64-14"></a>  <span class="fu">geom_density</span>(<span class="at">binwidth =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb64-15"><a href="#cb64-15"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> main_cat) <span class="sc">+</span></span>
+<span id="cb64-16"><a href="#cb64-16"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Critic Score"</span>, <span class="at">title=</span><span class="st">"Score Distribution by Length Categories"</span>)</span>
+<span id="cb64-17"><a href="#cb64-17"></a><span class="co">#distribution graphs based on length categories vs scores</span></span>
+<span id="cb64-18"><a href="#cb64-18"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>quarto-executable-code-5450563D</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb55-2"><a href="#cb55-2"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb55-3"><a href="#cb55-3"></a>  <span class="fu">filter</span>(main_story <span class="sc">&lt;</span> <span class="dv">25</span>) <span class="sc">|&gt;</span></span>
-<span id="cb55-4"><a href="#cb55-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
-<span id="cb55-5"><a href="#cb55-5"></a>  <span class="fu">geom_density_2d_filled</span>(<span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">bins=</span><span class="dv">10</span>) </span>
-<span id="cb55-6"><a href="#cb55-6"></a><span class="co">#first, we try a density plot, but thats like, frequency which means that the score groups overpower everything</span></span>
-<span id="cb55-7"><a href="#cb55-7"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb55-8"><a href="#cb55-8"></a>  <span class="co">#filter(meta_score &lt; 60) |&gt;</span></span>
-<span id="cb55-9"><a href="#cb55-9"></a>  <span class="fu">filter</span>(main_story <span class="sc">&lt;</span> <span class="dv">50</span>) <span class="sc">|&gt;</span></span>
-<span id="cb55-10"><a href="#cb55-10"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(main_story, meta_score )) <span class="sc">+</span></span>
-<span id="cb55-11"><a href="#cb55-11"></a>  <span class="co">#geom_raster(aes(fill=density))</span></span>
-<span id="cb55-12"><a href="#cb55-12"></a>  <span class="fu">geom_bin_2d</span>( <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb55-13"><a href="#cb55-13"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">"YlGnBu"</span>, <span class="at">name =</span> <span class="st">"# Games"</span>) <span class="sc">+</span></span>
-<span id="cb55-14"><a href="#cb55-14"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Score vs. Main Story Length"</span>)</span>
-<span id="cb55-15"><a href="#cb55-15"></a><span class="co">#then we learn how to use geom_bin_2d with count which is really great. I tried this weird raster thing but it didn't really work</span></span>
-<span id="cb55-16"><a href="#cb55-16"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb55-17"><a href="#cb55-17"></a>  <span class="fu">filter</span>(completionist <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
-<span id="cb55-18"><a href="#cb55-18"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(completionist, meta_score )) <span class="sc">+</span></span>
-<span id="cb55-19"><a href="#cb55-19"></a>  <span class="fu">geom_bin_2d</span>( <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb55-20"><a href="#cb55-20"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">"YlOrRd"</span>, <span class="at">name =</span> <span class="st">"# Games"</span>) <span class="sc">+</span></span>
-<span id="cb55-21"><a href="#cb55-21"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"100% Completion Time (Hours)"</span>, <span class="at">title=</span><span class="st">"Score vs. 100% Time"</span>)</span>
-<span id="cb55-22"><a href="#cb55-22"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb55-23"><a href="#cb55-23"></a>  <span class="fu">filter</span>(main_plus_extras <span class="sc">&lt;</span> <span class="dv">75</span>) <span class="sc">|&gt;</span></span>
-<span id="cb55-24"><a href="#cb55-24"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(main_plus_extras, meta_score )) <span class="sc">+</span></span>
-<span id="cb55-25"><a href="#cb55-25"></a>  <span class="fu">geom_bin_2d</span>( <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb55-26"><a href="#cb55-26"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">"YlOrRd"</span>, <span class="at">name =</span> <span class="st">"# Games"</span>) <span class="sc">+</span></span>
-<span id="cb55-27"><a href="#cb55-27"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Story and Side Content Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Score vs. Story + Extras Length"</span>)</span>
-<span id="cb55-28"><a href="#cb55-28"></a><span class="co">#I then preceded to check it out with completion and "extra content" times, trying to fit the scale in such a way that the boxes wouldn't be stretched but would divide in weird places that would make the data look "speckled"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb65-2"><a href="#cb65-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> main_story, <span class="at">x=</span>meta_cat)) <span class="sc">+</span></span>
+<span id="cb65-3"><a href="#cb65-3"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb65-4"><a href="#cb65-4"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Critic Evaluation"</span>, <span class="at">y=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Length Distribution by Score Categories"</span>) <span class="sc">+</span></span>
+<span id="cb65-5"><a href="#cb65-5"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">75</span>))</span>
+<span id="cb65-6"><a href="#cb65-6"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb65-7"><a href="#cb65-7"></a>  <span class="fu">filter</span>(main_story<span class="sc">&lt;=</span><span class="dv">17</span>) <span class="sc">|&gt;</span></span>
+<span id="cb65-8"><a href="#cb65-8"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> main_story, <span class="at">x=</span>meta_cat)) <span class="sc">+</span></span>
+<span id="cb65-9"><a href="#cb65-9"></a>  <span class="fu">geom_violin</span>() </span>
+<span id="cb65-10"><a href="#cb65-10"></a></span>
+<span id="cb65-11"><a href="#cb65-11"></a></span>
+<span id="cb65-12"><a href="#cb65-12"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb65-13"><a href="#cb65-13"></a>  <span class="fu">filter</span>(main_story<span class="sc">&lt;=</span><span class="dv">25</span>) <span class="sc">|&gt;</span></span>
+<span id="cb65-14"><a href="#cb65-14"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
+<span id="cb65-15"><a href="#cb65-15"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">color=</span><span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb65-16"><a href="#cb65-16"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> meta_cat)</span>
+<span id="cb65-17"><a href="#cb65-17"></a></span>
+<span id="cb65-18"><a href="#cb65-18"></a></span>
+<span id="cb65-19"><a href="#cb65-19"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb65-20"><a href="#cb65-20"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story)) <span class="sc">+</span></span>
+<span id="cb65-21"><a href="#cb65-21"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">"gold"</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb65-22"><a href="#cb65-22"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> meta_cat) <span class="sc">+</span></span>
+<span id="cb65-23"><a href="#cb65-23"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">25</span>)) <span class="sc">+</span></span>
+<span id="cb65-24"><a href="#cb65-24"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Length Distribution by Score Categories"</span>)</span>
+<span id="cb65-25"><a href="#cb65-25"></a><span class="co">#distribution graphs based on length vs score categories</span></span>
+<span id="cb65-26"><a href="#cb65-26"></a>withcats <span class="sc">|&gt;</span></span>
+<span id="cb65-27"><a href="#cb65-27"></a>  <span class="fu">filter</span>(completionist<span class="sc">&gt;=</span><span class="dv">40</span>) <span class="sc">|&gt;</span></span>
+<span id="cb65-28"><a href="#cb65-28"></a>  <span class="fu">filter</span>(completionist<span class="sc">&lt;=</span><span class="dv">200</span>) <span class="sc">|&gt;</span></span>
+<span id="cb65-29"><a href="#cb65-29"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> completionist)) <span class="sc">+</span></span>
+<span id="cb65-30"><a href="#cb65-30"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb65-31"><a href="#cb65-31"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> meta_cat)</span>
+<span id="cb65-32"><a href="#cb65-32"></a><span class="co">#i check out how it compares for "all content completionist" times, within a certain range. there is a big range and so all this data has to be suited into a certain range to make any sense</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>quarto-executable-code-5450563D</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb66-2"><a href="#cb66-2"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb66-3"><a href="#cb66-3"></a>  <span class="fu">filter</span>(main_story <span class="sc">&lt;</span> <span class="dv">25</span>) <span class="sc">|&gt;</span></span>
+<span id="cb66-4"><a href="#cb66-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb66-5"><a href="#cb66-5"></a>  <span class="fu">geom_density_2d_filled</span>(<span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">bins=</span><span class="dv">10</span>) </span>
+<span id="cb66-6"><a href="#cb66-6"></a><span class="co">#first, we try a density plot, but thats like, frequency which means that the score groups overpower everything</span></span>
+<span id="cb66-7"><a href="#cb66-7"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb66-8"><a href="#cb66-8"></a>  <span class="co">#filter(meta_score &lt; 60) |&gt;</span></span>
+<span id="cb66-9"><a href="#cb66-9"></a>  <span class="fu">filter</span>(main_story <span class="sc">&lt;</span> <span class="dv">50</span>) <span class="sc">|&gt;</span></span>
+<span id="cb66-10"><a href="#cb66-10"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(main_story, meta_score )) <span class="sc">+</span></span>
+<span id="cb66-11"><a href="#cb66-11"></a>  <span class="co">#geom_raster(aes(fill=density))</span></span>
+<span id="cb66-12"><a href="#cb66-12"></a>  <span class="fu">geom_bin_2d</span>( <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb66-13"><a href="#cb66-13"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">"YlGnBu"</span>, <span class="at">name =</span> <span class="st">"# Games"</span>) <span class="sc">+</span></span>
+<span id="cb66-14"><a href="#cb66-14"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Main Story Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Score vs. Main Story Length"</span>)</span>
+<span id="cb66-15"><a href="#cb66-15"></a><span class="co">#then we learn how to use geom_bin_2d with count which is really great. I tried this weird raster thing but it didn't really work</span></span>
+<span id="cb66-16"><a href="#cb66-16"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb66-17"><a href="#cb66-17"></a>  <span class="fu">filter</span>(completionist <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
+<span id="cb66-18"><a href="#cb66-18"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(completionist, meta_score )) <span class="sc">+</span></span>
+<span id="cb66-19"><a href="#cb66-19"></a>  <span class="fu">geom_bin_2d</span>( <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb66-20"><a href="#cb66-20"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">"YlOrRd"</span>, <span class="at">name =</span> <span class="st">"# Games"</span>) <span class="sc">+</span></span>
+<span id="cb66-21"><a href="#cb66-21"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"100% Completion Time (Hours)"</span>, <span class="at">title=</span><span class="st">"Score vs. 100% Time"</span>)</span>
+<span id="cb66-22"><a href="#cb66-22"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb66-23"><a href="#cb66-23"></a>  <span class="fu">filter</span>(main_plus_extras <span class="sc">&lt;</span> <span class="dv">75</span>) <span class="sc">|&gt;</span></span>
+<span id="cb66-24"><a href="#cb66-24"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(main_plus_extras, meta_score )) <span class="sc">+</span></span>
+<span id="cb66-25"><a href="#cb66-25"></a>  <span class="fu">geom_bin_2d</span>( <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb66-26"><a href="#cb66-26"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">"YlOrRd"</span>, <span class="at">name =</span> <span class="st">"# Games"</span>) <span class="sc">+</span></span>
+<span id="cb66-27"><a href="#cb66-27"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Critic Score"</span>, <span class="at">x=</span><span class="st">"Story and Side Content Length (Hours)"</span>, <span class="at">title=</span><span class="st">"Score vs. Story + Extras Length"</span>)</span>
+<span id="cb66-28"><a href="#cb66-28"></a><span class="co">#I then preceded to check it out with completion and "extra content" times, trying to fit the scale in such a way that the boxes wouldn't be stretched but would divide in weird places that would make the data look "speckled"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code></code></pre>
 <p>:::</p>
 

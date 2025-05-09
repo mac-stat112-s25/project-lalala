@@ -302,7 +302,7 @@ date (3): release_na, release_eu, release_jp
 <span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">select</span>(name, main_story, main_plus_extras, completionist, all_styles, type, platforms, genres)</span>
 <span id="cb9-5"><a href="#cb9-5"></a></span>
 <span id="cb9-6"><a href="#cb9-6"></a>palala <span class="ot">&lt;-</span> metac <span class="sc">|&gt;</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a>  <span class="fu">left_join</span>(realgames) <span class="sc">|&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a>  <span class="fu">inner_join</span>(realgames) <span class="sc">|&gt;</span></span>
 <span id="cb9-8"><a href="#cb9-8"></a>  <span class="fu">mutate</span>(<span class="at">gaga =</span> release_date) <span class="sc">|&gt;</span></span>
 <span id="cb9-9"><a href="#cb9-9"></a>  <span class="fu">separate</span>(gaga, <span class="fu">c</span>(<span class="st">"semester"</span>, <span class="st">"year"</span>), <span class="st">"(?&lt;=[,])"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb9-10"><a href="#cb9-10"></a>  <span class="fu">mutate</span>(<span class="at">release_year =</span> <span class="fu">str_replace</span>(year, <span class="st">" "</span>, <span class="st">""</span>)) <span class="sc">|&gt;</span></span>
@@ -313,7 +313,7 @@ date (3): release_na, release_eu, release_jp
 <pre><code>Joining with `by = join_by(name)`</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning in left_join(metac, realgames): Detected an unexpected many-to-many relationship between `x` and `y`.
+<pre><code>Warning in inner_join(metac, realgames): Detected an unexpected many-to-many relationship between `x` and `y`.
 ℹ Row 13617 of `x` matches multiple rows in `y`.
 ℹ Row 3596 of `y` matches multiple rows in `x`.
 ℹ If a many-to-many relationship is expected, set `relationship =
@@ -352,7 +352,8 @@ Caused by warning:
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>USETHISONE <span class="sc">|&gt;</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">filter</span>(main_story <span class="sc">&lt;</span> <span class="dv">100</span>) <span class="sc">|&gt;</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.6</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Main Story Length"</span>, <span class="at">y =</span> <span class="st">"Metascore"</span>, <span class="at">title =</span> <span class="st">"Metacritic Score vs Amount of Time to Complete Main Story"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="elina-p_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
@@ -363,7 +364,7 @@ Caused by warning:
 <span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> user_review)) <span class="sc">+</span></span>
 <span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 6608 rows containing missing values or values outside the scale range
+<pre><code>Warning: Removed 2176 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
@@ -377,10 +378,11 @@ Caused by warning:
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>USETHISONE <span class="sc">|&gt;</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> user_review)) <span class="sc">+</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"User Score"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"User Score"</span>, <span class="at">y =</span> <span class="st">"Count"</span>, <span class="at">title =</span> <span class="st">"Distribution of User Video Game Review Scores"</span>) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)) <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 989 rows containing non-finite outside the scale range
+<pre><code>Warning: Removed 408 rows containing non-finite outside the scale range
 (`stat_count()`).</code></pre>
 </div>
 <div class="cell-output-display">
@@ -392,7 +394,8 @@ Caused by warning:
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>USETHISONE <span class="sc">|&gt;</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> meta_score)) <span class="sc">+</span></span>
 <span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Critic Score"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Critic Score"</span>, <span class="at">y =</span> <span class="st">"Count"</span>, <span class="at">title =</span> <span class="st">"Distribution of Critic Video Game Review Scores"</span>) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="elina-p_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
@@ -406,7 +409,7 @@ Caused by warning:
 <span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
 <span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 262 rows containing missing values or values outside the scale range
+<pre><code>Warning: Removed 112 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
@@ -420,7 +423,7 @@ Caused by warning:
 <span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
 <span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 347 rows containing missing values or values outside the scale range
+<pre><code>Warning: Removed 115 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
@@ -1095,7 +1098,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb26-14"><a href="#cb26-14"></a>  <span class="fu">select</span>(name, main_story, main_plus_extras, completionist, all_styles, type, platforms, genres)</span>
 <span id="cb26-15"><a href="#cb26-15"></a></span>
 <span id="cb26-16"><a href="#cb26-16"></a>palala <span class="ot">&lt;-</span> metac <span class="sc">|&gt;</span></span>
-<span id="cb26-17"><a href="#cb26-17"></a>  <span class="fu">left_join</span>(realgames) <span class="sc">|&gt;</span></span>
+<span id="cb26-17"><a href="#cb26-17"></a>  <span class="fu">inner_join</span>(realgames) <span class="sc">|&gt;</span></span>
 <span id="cb26-18"><a href="#cb26-18"></a>  <span class="fu">mutate</span>(<span class="at">gaga =</span> release_date) <span class="sc">|&gt;</span></span>
 <span id="cb26-19"><a href="#cb26-19"></a>  <span class="fu">separate</span>(gaga, <span class="fu">c</span>(<span class="st">"semester"</span>, <span class="st">"year"</span>), <span class="st">"(?&lt;=[,])"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb26-20"><a href="#cb26-20"></a>  <span class="fu">mutate</span>(<span class="at">release_year =</span> <span class="fu">str_replace</span>(year, <span class="st">" "</span>, <span class="st">""</span>)) <span class="sc">|&gt;</span></span>
@@ -1128,51 +1131,54 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb26-51"><a href="#cb26-51"></a>USETHISONE <span class="sc">|&gt;</span></span>
 <span id="cb26-52"><a href="#cb26-52"></a>  <span class="fu">filter</span>(main_story <span class="sc">&lt;</span> <span class="dv">100</span>) <span class="sc">|&gt;</span></span>
 <span id="cb26-53"><a href="#cb26-53"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
-<span id="cb26-54"><a href="#cb26-54"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.6</span>) </span>
-<span id="cb26-55"><a href="#cb26-55"></a></span>
-<span id="cb26-56"><a href="#cb26-56"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb26-57"><a href="#cb26-57"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> user_review)) <span class="sc">+</span></span>
-<span id="cb26-58"><a href="#cb26-58"></a>  <span class="fu">geom_point</span>() </span>
-<span id="cb26-59"><a href="#cb26-59"></a></span>
-<span id="cb26-60"><a href="#cb26-60"></a><span class="in">```</span></span>
-<span id="cb26-61"><a href="#cb26-61"></a></span>
-<span id="cb26-64"><a href="#cb26-64"></a><span class="in">```{r}</span></span>
-<span id="cb26-65"><a href="#cb26-65"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb26-66"><a href="#cb26-66"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> user_review)) <span class="sc">+</span></span>
-<span id="cb26-67"><a href="#cb26-67"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb26-68"><a href="#cb26-68"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"User Score"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb26-69"><a href="#cb26-69"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>))</span>
-<span id="cb26-70"><a href="#cb26-70"></a></span>
-<span id="cb26-71"><a href="#cb26-71"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb26-72"><a href="#cb26-72"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> meta_score)) <span class="sc">+</span></span>
-<span id="cb26-73"><a href="#cb26-73"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb26-74"><a href="#cb26-74"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Critic Score"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span>
-<span id="cb26-75"><a href="#cb26-75"></a></span>
-<span id="cb26-76"><a href="#cb26-76"></a></span>
-<span id="cb26-77"><a href="#cb26-77"></a><span class="in">```</span></span>
-<span id="cb26-80"><a href="#cb26-80"></a><span class="in">```{r}</span></span>
-<span id="cb26-81"><a href="#cb26-81"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb26-82"><a href="#cb26-82"></a>  <span class="fu">filter</span>(release_year <span class="sc">==</span> <span class="dv">2006</span>) <span class="sc">|&gt;</span></span>
-<span id="cb26-83"><a href="#cb26-83"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
-<span id="cb26-84"><a href="#cb26-84"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb26-85"><a href="#cb26-85"></a></span>
-<span id="cb26-86"><a href="#cb26-86"></a>USETHISONE <span class="sc">|&gt;</span></span>
-<span id="cb26-87"><a href="#cb26-87"></a>  <span class="fu">filter</span>(release_year <span class="sc">==</span> <span class="dv">2018</span>) <span class="sc">|&gt;</span></span>
-<span id="cb26-88"><a href="#cb26-88"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
-<span id="cb26-89"><a href="#cb26-89"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb26-90"><a href="#cb26-90"></a><span class="in">```</span></span>
-<span id="cb26-91"><a href="#cb26-91"></a></span>
-<span id="cb26-94"><a href="#cb26-94"></a><span class="in">```{r}</span></span>
-<span id="cb26-95"><a href="#cb26-95"></a>USETHISONE <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>(main_story)<span class="sc">|&gt;</span></span>
-<span id="cb26-96"><a href="#cb26-96"></a>  <span class="fu">filter</span>(release_year <span class="sc">&gt;</span> <span class="dv">1999</span> ) <span class="sc">|&gt;</span></span>
-<span id="cb26-97"><a href="#cb26-97"></a>  <span class="fu">filter</span>(release_year <span class="sc">&lt;</span> <span class="dv">2019</span>) <span class="sc">|&gt;</span></span>
-<span id="cb26-98"><a href="#cb26-98"></a>  <span class="fu">group_by</span>(release_year) <span class="sc">|&gt;</span></span>
-<span id="cb26-99"><a href="#cb26-99"></a>  <span class="fu">mutate</span>(<span class="at">meanhltb =</span> <span class="fu">mean</span>(main_story)) <span class="sc">|&gt;</span></span>
-<span id="cb26-100"><a href="#cb26-100"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb26-101"><a href="#cb26-101"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> release_year, <span class="at">y =</span> meanhltb)) <span class="sc">+</span></span>
-<span id="cb26-102"><a href="#cb26-102"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb26-103"><a href="#cb26-103"></a>  </span>
-<span id="cb26-104"><a href="#cb26-104"></a><span class="in">```</span></span>
+<span id="cb26-54"><a href="#cb26-54"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb26-55"><a href="#cb26-55"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Main Story Length"</span>, <span class="at">y =</span> <span class="st">"Metascore"</span>, <span class="at">title =</span> <span class="st">"Metacritic Score vs Amount of Time to Complete Main Story"</span>)</span>
+<span id="cb26-56"><a href="#cb26-56"></a></span>
+<span id="cb26-57"><a href="#cb26-57"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb26-58"><a href="#cb26-58"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> user_review)) <span class="sc">+</span></span>
+<span id="cb26-59"><a href="#cb26-59"></a>  <span class="fu">geom_point</span>() </span>
+<span id="cb26-60"><a href="#cb26-60"></a></span>
+<span id="cb26-61"><a href="#cb26-61"></a><span class="in">```</span></span>
+<span id="cb26-62"><a href="#cb26-62"></a></span>
+<span id="cb26-65"><a href="#cb26-65"></a><span class="in">```{r}</span></span>
+<span id="cb26-66"><a href="#cb26-66"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb26-67"><a href="#cb26-67"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> user_review)) <span class="sc">+</span></span>
+<span id="cb26-68"><a href="#cb26-68"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb26-69"><a href="#cb26-69"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"User Score"</span>, <span class="at">y =</span> <span class="st">"Count"</span>, <span class="at">title =</span> <span class="st">"Distribution of User Video Game Review Scores"</span>) <span class="sc">+</span></span>
+<span id="cb26-70"><a href="#cb26-70"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)) <span class="sc">+</span></span>
+<span id="cb26-71"><a href="#cb26-71"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb26-72"><a href="#cb26-72"></a></span>
+<span id="cb26-73"><a href="#cb26-73"></a></span>
+<span id="cb26-74"><a href="#cb26-74"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb26-75"><a href="#cb26-75"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb26-76"><a href="#cb26-76"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb26-77"><a href="#cb26-77"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Critic Score"</span>, <span class="at">y =</span> <span class="st">"Count"</span>, <span class="at">title =</span> <span class="st">"Distribution of Critic Video Game Review Scores"</span>) <span class="sc">+</span></span>
+<span id="cb26-78"><a href="#cb26-78"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb26-79"><a href="#cb26-79"></a></span>
+<span id="cb26-80"><a href="#cb26-80"></a><span class="in">```</span></span>
+<span id="cb26-83"><a href="#cb26-83"></a><span class="in">```{r}</span></span>
+<span id="cb26-84"><a href="#cb26-84"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb26-85"><a href="#cb26-85"></a>  <span class="fu">filter</span>(release_year <span class="sc">==</span> <span class="dv">2006</span>) <span class="sc">|&gt;</span></span>
+<span id="cb26-86"><a href="#cb26-86"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb26-87"><a href="#cb26-87"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb26-88"><a href="#cb26-88"></a></span>
+<span id="cb26-89"><a href="#cb26-89"></a>USETHISONE <span class="sc">|&gt;</span></span>
+<span id="cb26-90"><a href="#cb26-90"></a>  <span class="fu">filter</span>(release_year <span class="sc">==</span> <span class="dv">2018</span>) <span class="sc">|&gt;</span></span>
+<span id="cb26-91"><a href="#cb26-91"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> main_story, <span class="at">y =</span> meta_score)) <span class="sc">+</span></span>
+<span id="cb26-92"><a href="#cb26-92"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb26-93"><a href="#cb26-93"></a><span class="in">```</span></span>
+<span id="cb26-94"><a href="#cb26-94"></a></span>
+<span id="cb26-97"><a href="#cb26-97"></a><span class="in">```{r}</span></span>
+<span id="cb26-98"><a href="#cb26-98"></a>USETHISONE <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>(main_story)<span class="sc">|&gt;</span></span>
+<span id="cb26-99"><a href="#cb26-99"></a>  <span class="fu">filter</span>(release_year <span class="sc">&gt;</span> <span class="dv">1999</span> ) <span class="sc">|&gt;</span></span>
+<span id="cb26-100"><a href="#cb26-100"></a>  <span class="fu">filter</span>(release_year <span class="sc">&lt;</span> <span class="dv">2019</span>) <span class="sc">|&gt;</span></span>
+<span id="cb26-101"><a href="#cb26-101"></a>  <span class="fu">group_by</span>(release_year) <span class="sc">|&gt;</span></span>
+<span id="cb26-102"><a href="#cb26-102"></a>  <span class="fu">mutate</span>(<span class="at">meanhltb =</span> <span class="fu">mean</span>(main_story)) <span class="sc">|&gt;</span></span>
+<span id="cb26-103"><a href="#cb26-103"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb26-104"><a href="#cb26-104"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> release_year, <span class="at">y =</span> meanhltb)) <span class="sc">+</span></span>
+<span id="cb26-105"><a href="#cb26-105"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb26-106"><a href="#cb26-106"></a>  </span>
+<span id="cb26-107"><a href="#cb26-107"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
