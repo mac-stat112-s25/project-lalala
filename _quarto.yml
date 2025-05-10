@@ -11,8 +11,8 @@ project:
 
 
 book:
-  title: "project title"
-  author: ["student 1 first and last name", "student 2 first and last name", "student 3 first and last name"]
+  title: "It was awful, and such small portions"
+  author: ["Merce Lutzker", "Elina Poll"]
   date: today  # use today to update date published based on last time project was edited
   date-format: full
   # favicon: images/logo.png
@@ -37,6 +37,15 @@ book:
 
   chapters:
     - index.qmd
+    
+    - part: "Effective Teamwork"
+      chapters: 
+      - src/et/elina-p.qmd
+      - src/et/merce-l.qmd
+    - part: "EDA"
+      chapters: 
+        - src/EDA/elina-p.qmd
+        - src/EDA/merce-l.qmd
 
   appendices:
   - src/appx/proposal.qmd
