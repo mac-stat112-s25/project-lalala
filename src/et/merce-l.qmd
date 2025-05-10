@@ -19,6 +19,6 @@ title: "Merce L"
 
 I used [this article](https://slack.com/blog/collaboration/essential-steps-effective-teamwork) from Slack, written by Devon Maloney in 2019 for my effective teamwork reading
 
-::: {.callout-note title="Findings}
+::: {.callout-note title="Findings"}
 The article establishes a situation in which less work has been done to establish guidelines and optimization around teamwork. It identifies first personality correspondence (what it calls a  "good people fit") between team members as a basis to an effective team. Furthermore, it declares that rapport must be intentionally, but 'Organically' generated between team members (through stuff as simple as eating lunch together), both on a larger scale (from the top down), and a smaller scale (for example, in "team building exercises"). To this end, it particularly encourages the personalization of these relationships, and opening space for explanation. It also establishes transparency/"knowledge sharing" as an end in and of itself, which can help teams wokr more concertedly, and also but a precursor to developing onboarding procedures. Finally, the article emphasizes the importance of what it calls "constructive conflict", the process of fielding disagreement in ways that do not put people at emotional risk but rather grant a space where this can lead to improvements and changes. While this article was more closely geared very specifically to the bosses of a corporate setting, it still proved somewhat conceptually useful
 :::
